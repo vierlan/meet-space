@@ -5,4 +5,9 @@
   <p><%= @venue.category %></p>
   <p><%= @venue.facilities %></p>
   <p><%= @venue.address %></p>
+  <div>
+    <% if @venue.photos.attached? && @venue.photos[0].present? %>
+       <%= cl_image_tag @venue.photos[0].key, alt: @venue.name, class: "venue-img" %>
+    <% end %>
+  </div>
 </div>

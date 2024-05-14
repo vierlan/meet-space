@@ -6,5 +6,8 @@ class PagesController < ApplicationController
 
   def profile
     @user = current_user
+    @venues = @user.venues
+    @bookings = @user.bookings
+    @venue = Venue.last
   end
 end
