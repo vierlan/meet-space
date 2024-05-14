@@ -1,0 +1,53 @@
+/* Assuming this is part of your SCSS file */
+.venue-card {
+  width: 500px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.venue-card h2 {
+  margin-bottom: 10px;
+}
+
+.venue-card p {
+  margin-bottom: 5px;
+}
+.venue-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 5px;
+
+}
+.venue-card .venue-images {
+  margin-top: 10px;
+}
+
+// .venue-card .venue-images img {
+//   max-width: 50%;
+//   height: auto;
+//   width: 100%;
+//   border-radius: 8px;
+//   margin-bottom: 5px;
+// }
+
+
+// <h2><%= venue.name %></h2>
+// <p><strong>Category:</strong> <%= venue.category %></p>
+// <p><strong>Address:</strong> <%= venue.address %></p>
+// <p><strong>Facilities:</strong> <%= venue.facilities %></p>
+// <p><strong>Capacity:</strong> <%= venue.capacity %></p>
+// <div><%= link_to "view this venue", venue_path(venue) %></div>
+// <% if venue.photos.attached? %>
+//   <div class="venue-images">
+//     <% venue.photos.each do |photo| %>
+//       <%= image_tag photo %>
+//     <% end %>
+//   </div>
+// <% else %>
+//   <p>No images available for this venue.</p>
+// <% end %>
+// </div>
