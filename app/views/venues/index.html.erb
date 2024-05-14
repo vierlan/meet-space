@@ -1,1 +1,9 @@
 <h1>Index page</h1>
+<% @venues.each do |venue| %>
+<h2>
+  <%= venue.name %>
+</h2>
+<h2>
+  <%= venue.user_id %>
+</h2>
+<% end %>
