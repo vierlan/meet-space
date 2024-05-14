@@ -27,7 +27,7 @@ end
 
 
 image_directory = "app/assets/images/"
-venue_images = ["meet.jpg", "work.jpg", "celebration.jpg", "21.jpg", "22.jpg", "23.jpg", "25.jpg", "27.jpg"]
+# venue_images = ["meet.jpg", "work.jpg", "celebration.jpg", "21.jpg", "22.jpg", "23.jpg", "25.jpg", "27.jpg"]
 categories = [:network, :meet, :celebrate]
 facilities_array = [:wifi, :coffee, :tv, :pool, :beach, :spa]
 
