@@ -1,0 +1,21 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h3>Edit your venue</h3>
+        <%= simple_form_for(@venue) do |f| %>
+        <%= f.input :name %>
+        <%#= f.input :photos, as: :file, input_html: {multiple: true} %>
+        <%= f.input :capacity %>
+        <div class="input-group">
+          <%= f.label :category %>
+          <%= f.select :category, :collection => %w[NETWORKING SOCIAL CELEBRATION] %>
+        </div>
+        <%= f.input :facilities %>
+        <%= f.input :address %>
+        <%= f.submit class: 'btn btn-flat' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
