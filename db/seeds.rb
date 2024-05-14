@@ -51,7 +51,7 @@ facilities_array = [:wifi, :coffee, :tv, :pool, :beach, :spa]
 #   end
 
 #   new_venue.save
-# end
+#  end
   if File.exist?(image_path)
 
     new_venue.photos.attach(io: File.open(image_path), filename: image_filename, content_type: "image/jpeg")
