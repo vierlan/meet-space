@@ -5,7 +5,7 @@
         <h3>List your venue</h3>
         <%= simple_form_for(@venue) do |f| %>
         <%= f.input :name, placeholder: 'Venue' %>
-        <%#= f.input :photos, as: :file, input_html: {multiple: true} %>
+        <%= f.input :photos, as: :file, input_html: {multiple: true} %>
         <%= f.input :capacity, placeholder: 'Max capacity' %>
         <div class="input-group">
           <%= f.label :category %>
