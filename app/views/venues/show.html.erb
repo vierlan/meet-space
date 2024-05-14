@@ -1,13 +1,50 @@
-<h2 style="text-align: center;">venue Details</h2>
-<div class="venue-details">
-  <h3><%= @venue.name %></h3>
-  <p><%= @venue.capacity %> people</p>
-  <p><%= @venue.category %></p>
-  <p><%= @venue.facilities %></p>
-  <p><%= @venue.address %></p>
-  <div>
-    <% if @venue.photos.attached? && @venue.photos[0].present? %>
-       <%= cl_image_tag @venue.photos[0].key, alt: @venue.name, class: "venue-img" %>
-    <% end %>
+<div class="container">
+  <div class="venue-banner">
+    <%= image_tag "meet-1" %>
+  </div>
+
+  <div class="venue-photos">
+  <%= image_tag "meet-2" %>
+  <%= image_tag "meet-3" %>
+  </div>
+
+  <div class="venue-details" style="display: flex; justify-content: space-between;">
+  <div class="venue-description" style="flex: 1; margin-right: 20px;">
+    <h2>VENUE DESCRIPTION:</h2>
+    <p><strong>Name:</strong> <%= @venue.name %></p>
+    <p><strong>Hire Details:</strong> Venue hire for network</p>
+    <p><strong>Max capacity:</strong> <%= @venue.capacity %>pp</p>
+    <p><strong>Location:</strong> <%= @venue.address %></p>
+  </div>
+
+  <div class="container" style="flex: 1; margin-left: 20px;">
+    <div class="booking-form">
+      <h2>Book this Venue</h2>
+
+      <%= form_with(model: [@venue, @booking], local: true) do |form| %>
+        <div class="field">
+          <%= form.label :start_date %>
+          <%= form.date_select :start_date %>
+        </div>
+
+        <div class="field">
+          <%= form.label :end_date %>
+          <%= form.date_select :end_date %>
+        </div>
+
+        <div class="actions">
+          <%= form.submit "Reserve", class: 'btn' %>
+        </div>
+      <% end %>
+    </div>
+
+
+
+  <div class="map-calendar">
+    <img src="" alt="Map">
+    <div class="calendar">
+      <p>Calendar Placeholder</p>
+      <!-- Include calendar component here -->
+    </div>
   </div>
 </div>
