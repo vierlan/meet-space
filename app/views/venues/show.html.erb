@@ -1,36 +1,8 @@
-<h2 style="text-align: center;">Bag Details</h2>
-
-  <div class="container">
-    <div class ="photo-div">
-      <div class="lrg-photo-img">
-  <% if @bag.photos.attached? && @bag.photos[0].present? %>
-    <%= cl_image_tag @venue.photos[0].key, alt: @venue.name, class: "img" %>
-  <% else %>
-    <%= image_tag @pics.sample, alt: @venue.name, class: "img" %>
-  <% end %>
+<h2 style="text-align: center;">venue Details</h2>
+<div class="venue-details">
+  <h3><%= @venue.name %></h3>
+  <p><%= @venue.capacity %> people</p>
+  <p><%= @venue.category %></p>
+  <p><%= @venue.facilities %></p>
+  <p><%= @venue.address %></p>
 </div>
-
-<% @pics.each do |pic, index| %>
-  <% next if index.zero? || photo.nil? %>
-  <div class="small-img">
-    <%#= cl_image_tag photo.key, alt: @venue.name, class: "img" %>
-    <%= image_tag pic, alt: @venue.name, class: "img" %>
-  </div>
-<% end %>
-</div>
-
-
-      <div class="description-div">
-      <h2>Name: <strong><%= @bag.name %></strong></h2>
-      <div class="show-description">
-      <p>Brand: <strong><%= @bag.brand %></strong></p>
-      <p>Price: <strong>£<%= @bag.price %></strong></p>
-      <p>Description: <strong><%= @bag.description %></strong></p>
-      <p>Condition: <strong><%= @bag.condition %></strong></p>
-      <p>Location: <strong><%= @bag.location %></strong></p>
-      </div>
-      <div><%= link_to "Book this bag", new_bag_booking_path(@bag), class: "btn" %></div>
-      <div><%= link_to "Back to home page", root_path, class: "btn" %></div>
-
-      </div>
-      </div>
