@@ -1,9 +1,27 @@
-<h1>Index page</h1>
-<% @venues.each do |venue| %>
-<h2>
-  <%= venue.name %>
-</h2>
-<h2>
-  <%= link_to "view this venue", venue_path(venue) %>
-</h2>
-<% end %>
+
+
+<h1>All Venues</h1>
+<div class="container">
+<div class="venues">
+  <% @venues.each do |venue| %>
+    <div class="venue">
+      <h2><%= venue.name %></h2>
+      <p><strong>Category:</strong> <%= venue.category %></p>
+      <p><strong>Address:</strong> <%= venue.address %></p>
+      <p><strong>Facilities:</strong> <%= venue.facilities %></p>
+      <p><strong>Capacity:</strong> <%= venue.capacity %></p>
+      <div><%= link_to "view this venue", venue_path(venue) %></div>
+      <% if venue.photos.attached? %>
+        <div class="venue-images" style = "max-width: 200px; height: auto;">
+          <% venue.photos.each do |photo| %>
+            <%= image_tag photo, style: "max-width: 100%; height: auto;" %>
+          <% end %>
+        </div>
+      <% else %>
+        <p>No images available for this venue.</p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+</div>
+
