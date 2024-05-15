@@ -3,7 +3,12 @@ class VenuesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @venues = Venue.all
+    if params[:query].present?
+      @venues = Venue.search_by_name_and_facilities(params[:query])
+    else
+      @venues = Venue.all
+    end
+  
     policy_scope @venues
   end
 

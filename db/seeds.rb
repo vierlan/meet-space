@@ -41,16 +41,6 @@ facilities_array = [:wifi, :coffee, :tv, :pool, :beach, :spa]
   image_filename = venue_images.sample
   image_path = File.join(image_directory, image_filename)
 
-#   if File.exist?(image_path)
-#     File.open(image_path) do |file|
-#       new_venue.photos.attach(io: file, filename: image_filename, content_type: "image/jpeg")
-#     end
-#   else
-#     puts "Image file not found: #{image_path}"
-#   end
-
-#   new_venue.save
-# end
   if File.exist?(image_path)
 
     new_venue.photos.attach(io: File.open(image_path), filename: image_filename, content_type: "image/jpeg")
