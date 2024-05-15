@@ -1,18 +1,15 @@
 class VenuesController < ApplicationController
-  before_action :set_venue, only: %i[ show edit update destroy ]
-  skip_before_action :authenticate_user!, only: :index
+  before_action :set_venue, only: %i[show edit update destroy]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @venues = Venue.all
     policy_scope @venues
-    @pics = []
-    Dir.entries('app/assets/images').each do |image|
-      @pics << image
-    end
   end
 
   def show
     authorize @venue
+    @booking = Booking.new
   end
 
   def new
