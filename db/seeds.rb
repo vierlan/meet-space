@@ -1,4 +1,3 @@
-
 require 'faker'
 
 puts "Cleaning database..."
@@ -15,7 +14,6 @@ puts "Creating users..."
   email = Faker::Internet.email(name: "#{first_name} #{last_name}", separators: '.', domain: 'example.com')
   password = 123123
 
-
   User.create!(
     first_name: first_name,
     last_name: last_name,
@@ -25,9 +23,8 @@ puts "Creating users..."
   )
 end
 
-
 image_directory = "app/assets/images/"
-venue_images = ["meet.jpg", "work.jpg", "celebration.jpg", "21.jpg", "22.jpg", "23.jpg", "25.jpg", "27.jpg"]
+# venue_images = ["meet.jpg", "work.jpg", "celebration.jpg", "21.jpg", "22.jpg", "23.jpg", "25.jpg", "27.jpg"]
 categories = [:network, :meet, :celebrate]
 facilities_array = [:wifi, :coffee, :tv, :pool, :beach, :spa]
 

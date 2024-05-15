@@ -1,12 +1,23 @@
-.navbar-lewagon {
+.navbar-meet {
   justify-content: space-between;
-  background: white;
+  background: $meet-dark-gray;
+  a {
+    color: $light-gray;
+
+    &:hover {
+      color: $light-gray;
+    }
+    nav-link {
+      color: $white;
+      font-weight: bold;
+    }
+  }
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-meet .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-meet .navbar-brand img {
   width: 40px;
 }

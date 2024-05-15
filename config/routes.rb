@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   get "profile/:id", to: "pages#profile", as: :profile
   # Defines the root path route ("/")
   # root "posts#index"
-   resources :venues do
-    resources :bookings, only: [:new, :create]
-   end
+  resources :venues do
+    resources :bookings, except: [:show]
+  end
+  resources :bookings, only: [:destroy]
 end
