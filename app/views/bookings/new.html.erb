@@ -1,0 +1,9 @@
+<div class='container'>
+  <h1>Request to book this bag</h1>
+    <%= simple_form_for([@venue, @booking]) do |f| %>
+      <%= f.input :booking_start %>
+      <%= f.input :booking_end %>
+      <%= f.input :comment, placeholder: 'Message to host' %>
+      <%= f.submit %>
+    <% end %>
+</div>
