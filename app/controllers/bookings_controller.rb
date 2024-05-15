@@ -1,35 +1,46 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[ show edit update destroy ]
-  skip_before_action :authenticate
 
-  def index
-    @user = params[:current_user]
-    @bookings = Booking.all
-  end
+
+  before_action :set_venue, only: [:create]
+  before_action :set_booking, only: [:destroy]
 
   def new
     @booking = Booking.new
-    @venue = Venue.find(params[:venue_id])
   end
 
   def create
-    @booking = Booking.new(booking_params)
-    @venue = Venue.find(params[:venue_id])
-    @booking.venue = @venue
+    @booking = @venue.bookings.new(booking_params)
     @booking.user = current_user
+
+    authorize @booking
+
     if @booking.save
-    redirect_to profile_path(current_user), notice: "Your request has been sent!  Awaiting confirmation."
+      redirect_to profile_path(current_user), notice: "Your request has been sent!  Awaiting confirmation."
     else
-      render :new, status: :unprocessable_entity
+      render :new
+
     end
   end
 
   def destroy
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.destroy
+    redirect_to profile_path, notice: 'Booking was successfully destroyed.'
   end
 
   private
+
+  def set_venue
+    @venue = Venue.find(params[:venue_id])
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
 
   def booking_params
     params.require(:booking).permit(:booking_date, :comment)
   end
 end
+

@@ -1,52 +1,55 @@
 <div class="container">
   <div class="venue-banner">
-    <% cl_image_tag @venue.photos[0].key, alt: @venue.name, class: "venue-img" if @venue.photos.attached? && @venue.photos[0].present? %>
+
+    <%= image_tag "1.png", class: "banner-image" %>
   </div>
 
   <div class="venue-photos">
-    <% @venue.photos.each_with_index do |photo, index| %>
-    <% next if index.zero? || photo.nil? %>
-    <%= cl_image_tag photo.key, alt: @venue.name, class: "venue-img" %>
-    <% end %>
+    <%= image_tag "2.png", class: "photo-image" %>
+    <%= image_tag "3.png", class: "photo-image" %>
   </div>
 
-  <div class="venue-details" style="display: flex; justify-content: space-between;">
-  <div class="venue-description" style="flex: 1; margin-right: 20px;">
-    <h2>VENUE DESCRIPTION:</h2>
-    <p><strong>Name:</strong> <%= @venue.name %></p>
-    <p><strong>Hire Details:</strong> Venue hire for network</p>
-    <p><strong>Max capacity:</strong> <%= @venue.capacity %>pp</p>
-    <p><strong>Location:</strong> <%= @venue.address %></p>
-  </div>
-
-  <div class="container" style="flex: 1; margin-left: 20px;">
-    <div class="booking-form">
-      <h2>Book this Venue</h2>
-
-      <% simple_form_for(@venue, @booking) do |form| %>
-        <div class="field">
-          <%= form.label :booking_date %>
-          <%= form.date_select :booking_date %>
+  <div class="venue-details">
+    <div class="description-and-booking-container"> <!-- New parent div -->
+      <div class="venue-description-container"> <!-- New div for venue description -->
+        <div class="venue-description">
+          <h2>VENUE DESCRIPTION:</h2>
+          <p><strong>Name:</strong> <%= @venue.name %></p>
+          <p><strong>Hire Details:</strong> Venue hire for network</p>
+          <p><strong>Max capacity:</strong> <%= @venue.capacity %>pp</p>
+          <p><strong>Location:</strong> <%= @venue.address %></p>
         </div>
+      </div>
 
-        <div class="field">
-          <%= form.label :comment %>
-          <%= form.text :comment %>
-        </div>
+      <div class="booking-form-container"> <!-- New div for booking form -->
+        <div class="booking-form">
+          <h2>Book this Venue</h2>
 
-        <div class="actions">
-          <%= form.submit "Reserve", class: 'btn' %>
+          <%= form_with(model: [@venue, @booking], local: true) do |form| %>
+            <div class="field">
+              <%= form.label :start_date, "Start Date" %>
+              <%= form.date_select :start_date %>
+            </div>
+
+            <div class="field">
+              <%= form.label :end_date, "End Date" %>
+              <%= form.date_select :end_date %>
+            </div>
+
+            <div class="actions">
+              <%= form.submit "Reserve", class: 'btn' %>
+            </div>
+          <% end %>
         </div>
-      <% end %>
+      </div>
     </div>
 
-
-
-  <div class="map-calendar">
-    <img src="" alt="Map">
-    <div class="calendar">
-      <p>Calendar Placeholder</p>
-      <!-- Include calendar component here -->
+    
+    <div class="map-calendar">
+      <div class="calendar">
+        <!-- Include calendar component here -->
+      </div>
     </div>
   </div>
 </div>
+<div><%= link_to "Book this venue", new_venue_booking_path(@venue), class: "btn" %></div>

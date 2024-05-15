@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   resources :venues do
-    resources :bookings, only: %i[create]
+    resources :bookings, except: [:show]
   end
+  resources :bookings, only: [:destroy]
 end
