@@ -1,0 +1,48 @@
+/* Assuming this is part of your SCSS file */
+// .container {
+//   display: flex;
+//   flex-direction: column; /* Arrange items vertically */
+// }
+
+
+// .section {
+//   flex: 1;
+//   border: 1px solid #ccc;
+//   padding: 20px;
+//   margin: 10px;
+// }
+.container {
+  display: flex;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust column width as needed */
+  grid-gap: 20px; /* Adjust gap between columns */
+}
+
+.section {
+  background-color: #f0f0f0; /* Example background color */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.user-info {
+  display: flex;
+  align-items: center; /* Center items vertically */
+}
+.user-details {
+  margin-top: 10px;
+}
+h1 {
+  margin-right: 10px; /* Adjust spacing between user name and avatar */
+}
