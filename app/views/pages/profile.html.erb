@@ -15,28 +15,50 @@
     </div>
   </div>
 
-  <div class="section">
-          <h2 class="card-title text-center">My venues</h2>
-            <% @venues.each do |venue| %>
-              <%# <div class="col-md-4 mb-4"> %>
-                <div class="venue-card">
-                  <% if venue.photos.attached? && venue.photos[0].present? %>
-                    <%= cl_image_tag venue.photos[0].key, alt: venue.name, class: "venue-img" %>
-                  <% end %>
-                  <%# <%= image_tag(url_for(bag.photos.first), class: "card-img-top-profile") if bag.photos.attached? %>
 
-                    <h5 class="card-title text-center"><%= venue.name %></h5>
-                    <p><strong>Address:</strong> <%= venue.address %></p>
-                    <%# <p><strong>Facilities:</strong> <%= venue.facilities %>
-                    <%# </p> %>
-                  </div>
-                  <div>
+  <div class="section">
+    <h2 class="card-title text-center">My venues</h2>
+      <% @venues.each do |venue| %>
+
+        <div class="venue-card">
+          <h3><%= @venue.name %></h3>
+          <% end %>
+            <div class ="row">
+              <div class="col-md-8">
+                <div class="venue-img">
+                   <% if @venue.photos.attached? && @venue.photos[0].present? %>
+                    <%= cl_image_tag @venue.photos[0].key, alt: @venue.name, class: "venue-img" %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="row">
+                  <% @venue.photos.each_with_index do |photo, index| %>
+                    <% next if index.zero? || photo.nil? %>
+                    <div class="col-6">
+                      <div class="small-venue-img">
+                        <%= cl_image_tag photo.key, alt: @venue.name, class: "venue-img" %>
+                      </div>
+                      </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-3">
+            <div class="col-md-8 offset-md-4">
+            <h3 class="card-title text-center"><%= @venue.name %></h3>
+            <p><strong>Address:</strong> <%= @venue.address %></p>
+
+            </div>
+            </div>
+            </div>
+      </div>
                     <%= link_to "View Details", venue_path(venue), class: "btn btn-primary btn-block" %>
                     <%= link_to "Edit", edit_venue_path(venue), class: "btn btn-primary btn-block" %>
                     <%= link_to "Delete", venue_path(venue), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-block" %>
                   </div>
-                <%# </div> %>
-            <% end %>
+
+            <%# <% end %>
   </div>
   <div class="section">
     <h2>My bookings</h2>
