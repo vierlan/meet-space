@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
 
+
   before_action :set_venue, only: [:create]
   before_action :set_booking, only: [:destroy]
 
@@ -17,6 +18,7 @@ class BookingsController < ApplicationController
       redirect_to profile_path(current_user), notice: "Your request has been sent!  Awaiting confirmation."
     else
       render :new
+
     end
   end
 

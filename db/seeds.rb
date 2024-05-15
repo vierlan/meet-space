@@ -1,4 +1,3 @@
-
 require 'faker'
 
 puts "Cleaning database..."
