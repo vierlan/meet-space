@@ -8,7 +8,7 @@ class VenuesController < ApplicationController
     else
       @venues = Venue.all
     end
-  
+
     policy_scope @venues
   end
 
