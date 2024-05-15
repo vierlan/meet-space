@@ -34,11 +34,13 @@ class VenuesController < ApplicationController
   end
 
   def edit
+    authorize @venue
   end
 
   def update
     @venue.update(venue_params)
     redirect_to @venue
+    authorize @venue
   end
 
   def destroy

@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+
   before_action :set_venue, only: [:create]
   before_action :set_booking, only: [:destroy]
 
@@ -13,7 +14,7 @@ class BookingsController < ApplicationController
     authorize @booking
 
     if @booking.save
-      redirect_to profile_path(current_user), notice: 'Booking was successfully created'
+      redirect_to profile_path(current_user), notice: "Your request has been sent!  Awaiting confirmation."
     else
       render :new
     end
@@ -37,6 +38,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:booking_date, :comment)
   end
 end
+
