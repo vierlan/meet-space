@@ -24,15 +24,15 @@ puts "Creating users..."
 end
 
 image_directory = "app/assets/images/"
-# venue_images = ["meet.jpg", "work.jpg", "celebration.jpg", "21.jpg", "22.jpg", "23.jpg", "25.jpg", "27.jpg"]
+venue_images = ["meet.png"]
 categories = [:network, :meet, :celebrate]
 facilities_array = [:wifi, :coffee, :tv, :pool, :beach, :spa]
 
-10.times do |i|
+3.times do |i|
   new_venue = Venue.new(
     name: Faker::Restaurant.unique.name,
     facilities: facilities_array.sample(3).map(&:to_s).join(", "),
-    address: Faker::Address.full_address,
+    address: "10 Mulberry walk, southampton, SO15 5GA",
     category: categories.sample,
     capacity: Faker::Number.between(from: 10, to: 100),
     user_id: User.ids.sample

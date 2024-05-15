@@ -3,6 +3,7 @@ class VenuesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
+
     if params[:query].present?
       @venues = Venue.search_by_name_and_facilities(params[:query])
     else
@@ -10,6 +11,16 @@ class VenuesController < ApplicationController
     end
 
     policy_scope @venues
+
+    @markers = @venues.map do |venue|
+      {
+        lat: venue.latitude,
+        lng: venue.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {venue: venue}),
+        marker_html: render_to_string(partial: "marker", locals: {venue: venue})
+      }
+    end
+
   end
 
   def show
