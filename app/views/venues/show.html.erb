@@ -1,14 +1,16 @@
 <div class="container">
   <div class="venue-banner">
-
-    <%= image_tag "1.png", class: "banner-image" %>
-  </div>
-
+     <% if @venue.photos.attached? && @venue.photos[0].present? %>
+       <%= cl_image_tag @venue.photos[0].key, alt: @venue.name, class: "venue-img" %>
+     <% end %>
   <div class="venue-photos">
-    <%= image_tag "2.png", class: "photo-image" %>
-    <%= image_tag "3.png", class: "photo-image" %>
+    <% if @venue.photos.attached? && @venue.photos[0].present? %> <!-- Check if photos are attached and present -->
+      <% @venue.photos.each_with_index do |photo, index| %> <!-- Iterate over each photo -->
+        <% next if index.zero? || photo.nil? %> <!-- Skip the first photo and any nil photos -->
+        <%= cl_image_tag photo.key, alt: @venue.name, class: "venue-img" %> <!-- Display the photo -->
+      <% end %>
+    <% end %>
   </div>
-
   <div class="venue-details">
     <div class="description-and-booking-container"> <!-- New parent div -->
       <div class="venue-description-container"> <!-- New div for venue description -->
@@ -20,16 +22,14 @@
           <p><strong>Location:</strong> <%= @venue.address %></p>
         </div>
       </div>
-
       <div class="booking-form-container"> <!-- New div for booking form -->
         <div class="booking-form">
           <h2>Book this Venue</h2>
-
-          <%= form_with(model: [@venue, @booking], local: true) do |form| %>
-            <div class="field">
-              <%= form.label :start_date, "Start Date" %>
-              <%= form.date_select :start_date %>
-            </div>
+            <% form_with(model: [@venue, @booking], local: true) do |form| %>
+              <div class="field">
+                <%= form.label :start_date, "Start Date" %>
+                <%= form.date_select :start_date %>
+              </div>
 
             <div class="field">
               <%= form.label :end_date, "End Date" %>
@@ -44,7 +44,7 @@
       </div>
     </div>
 
-    
+
     <div class="map-calendar">
       <div class="calendar">
         <!-- Include calendar component here -->
