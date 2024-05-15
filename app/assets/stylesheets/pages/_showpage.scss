@@ -1,0 +1,142 @@
+.container {
+  width: 95%;
+  margin: auto;
+  height: 50%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+.venue-banner {        // banner image ... come back and fix with TA
+  width: 100%;
+  height: 35vh;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 10px;
+  object-fit: cover;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.venue-photos {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  height: 25vh;
+
+}
+
+.photo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+.venue-details {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+.description-and-booking-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.venue-description-container {
+  flex: 0 0 70%; // This will make the venue description take up 70% of the parent div
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+.booking-form-container {
+  flex: 0 0 30%; // This will make the booking form take up 30% of the parent div
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left:30%; // Adjust this value as needed
+}
+
+.booking-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.booking-form {
+  width: 100%;
+  max-width: 500px; // Adjust this value as needed
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.booking-form h2 {
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.field {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.field label {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.field select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.actions .btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
