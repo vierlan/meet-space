@@ -3,7 +3,12 @@ class VenuesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @venues = Venue.all
+    if params[:query].present?
+      @venues = Venue.search_by_name_and_facilities(params[:query])
+    else
+      @venues = Venue.all
+    end
+  
     policy_scope @venues
     @pics = []
     Dir.entries('app/assets/images').each do |image|
