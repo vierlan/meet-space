@@ -1,81 +1,66 @@
 <div class="container">
 
-  <div class="profile-card">
 
-    <h2>My profile: </h2>
-<div class="user-info">
-    <% if current_user.photo.present? %>
-      <%= cl_image_tag current_user.photo.key, class: "avatar-large", alt: "" %>
-    <% end %>
+  <div class="profile-card">
+        <%# <h2>My profile:</h2> %>
+    <div class="user-img">
+       <% if current_user.photo.present? %>
+        <%= cl_image_tag current_user.photo.key, class: "avatar-large", alt: "" %>
+      <% end %>
     </div>
     <div class="user-details">
-    <p><%= @current_user.username %></p>
-    <p><strong>Email:</strong> <%= @current_user.email %></p>
-    <p><strong>First Name:</strong> <%= @current_user.first_name %></p>
+      <p><%= @current_user.username %></p>
+      <p><strong>Email:</strong> <%= @current_user.email %></p>
+        <%# <div class="user-details"> %>
+      <p><strong>First Name:</strong> <%= @current_user.first_name %></p>
+      <p><strong>Last Name:</strong> <%= @current_user.last_name %></p>
+        <%# </div> %>
     </div>
   </div>
 
+<div main-content>
+  <div class="row row-content">
+    <div class="col-sm-12 col-md-6 col-content">
 
-  <div class="section">
-    <h2 class="card-title text-center">My venues</h2>
-      <% @venues.each do |venue| %>
+        <h2 class="card-title text-center">My venues</h2>
+        <% @venues.each do |venue| %>
+          <div class="venue-card">
+            <div class="venue-img">
+              <% if venue.photos.attached? && venue.photos[0].present? %>
+                <%= cl_image_tag venue.photos[0].key, alt: venue.name, class: "img-fluid" %>
+              <% end %>
+            </div>
+            <div class="venue-details">
+              <h5 class="card-title text-center"><%= venue.name %></h5>
+              <p><strong>Address:</strong> <%= venue.address %></p>
+            </div>
+            <div class="venue-actions">
+              <%= link_to "View Details", venue_path(venue), class: "btn btn-primary btn-block" %>
+              <%= link_to "Edit", edit_venue_path(venue), class: "btn btn-primary btn-block" %>
+              <%= link_to "Delete", venue_path(venue), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-block" %>
+            </div>
+          </div>
+        <% end %>
 
-        <div class="venue-card">
-          <h3><%= @venue.name %></h3>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-content">
+
+        <h2>My bookings</h2>
+        <ul class="list-group">
+          <% @bookings.each do |booking| %>
+            <li class="list-group-item">
+              <p><strong>Venue Owner:</strong> <%= booking.venue.user.email %></p>
+              <p><strong>Booking Request from:</strong> <%= booking.user.email %></p>
+              <p><strong>From:</strong> <%= booking.booking_date %></p>
+
+              <p><strong>Message:</strong> <%= booking.comment %></p>
+              <p><strong>Confirmed:</strong> <%= booking.confirmed %></p>
+            </li>
           <% end %>
-            <div class ="row">
-              <div class="col-md-8">
-                <div class="venue-img">
-                   <% if @venue.photos.attached? && @venue.photos[0].present? %>
-                    <%= cl_image_tag @venue.photos[0].key, alt: @venue.name, class: "venue-img" %>
-                  <% end %>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="row">
-                  <% @venue.photos.each_with_index do |photo, index| %>
-                    <% next if index.zero? || photo.nil? %>
-                    <div class="col-6">
-                      <div class="small-venue-img">
-                        <%= cl_image_tag photo.key, alt: @venue.name, class: "venue-img" %>
-                      </div>
-                      </div>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-            <div class="row mt-3">
-            <div class="col-md-8 offset-md-4">
-            <h3 class="card-title text-center"><%= @venue.name %></h3>
-            <p><strong>Address:</strong> <%= @venue.address %></p>
+        </ul>
 
-            </div>
-            </div>
-            </div>
       </div>
-                    <%= link_to "View Details", venue_path(venue), class: "btn btn-primary btn-block" %>
-                    <%= link_to "Edit", edit_venue_path(venue), class: "btn btn-primary btn-block" %>
-                    <%= link_to "Delete", venue_path(venue), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-block" %>
-                  </div>
-
-            <%# <% end %>
-  </div>
-  <div class="section">
-    <h2>My bookings</h2>
-   <%# <div class="col-md-4 mb-4"> %>
-<ul class="list-group">
-            <% @bookings.each do |booking| %>
-              <li class="list-group-item">
-                <p><strong>Venue Owner:</strong> <%= booking.venue.user.email %></p>
-                <p><strong>Booking Request from:</strong> <%= booking.user.email %></p>
-                <p><strong>From:</strong> <%= booking.booking_start %></p>
-                <p><strong>Until:</strong> <%= booking.booking_end %></p>
-                <p><strong>Message:</strong> <%= booking.comment %></p>
-                <p><strong>Confirmed:</strong> <%= booking.confirmed %></p>
-
-              </li>
-            <% end %>
-          </ul>
-    <%# </div> %>
+   </div>
   </div>
 </div>

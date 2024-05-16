@@ -1,48 +1,51 @@
-/* Assuming this is part of your SCSS file */
-// .container {
-//   display: flex;
-//   flex-direction: column; /* Arrange items vertically */
-// }
 
-
-// .section {
-//   flex: 1;
-//   border: 1px solid #ccc;
-//   padding: 20px;
-//   margin: 10px;
-// }
 .container {
-  display: flex;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust column width as needed */
-  grid-gap: 20px; /* Adjust gap between columns */
+  margin: 20px;
+  padding: 20px;
+}
+.main-content {
+  margin: 20px;
 }
 
-.section {
-  background-color: #f0f0f0; /* Example background color */
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);
-}
+// .main-content {
+//   margin: 20px;
+//   // display: flex;
+//   // justify-content: center;
+//   // align-items: center;
+//   // flex-direction: column;
+// }
+
 .profile-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px solid #ccc;
+    // display: flex;
+    align-items: center;
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    // border: 1px solid #ccc;
+
+
+  .user-img {
+    text-align: center;
+    margin-right: 20px;
+    margin-top: 20px;
+  }
+
+  .user-details {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+  }
+}
+.list-group {
+
+
+.list-group-item {
+  margin: 20px;
   border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
-
-.user-info {
-  display: flex;
-  align-items: center; /* Center items vertically */
-}
-.user-details {
-  margin-top: 10px;
-}
-h1 {
-  margin-right: 10px; /* Adjust spacing between user name and avatar */
 }

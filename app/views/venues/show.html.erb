@@ -27,8 +27,8 @@
         <div class="booking-form">
           <h2>Book this Venue</h2>
           <%= simple_form_for [@venue, @booking] do |f| %>
-            <%= f.input :start_date %>
-            <%= f.input :end_date %>
+            <%= f.input :booking_date %>
+
             <%= f.submit "Reserve", class: "btn btn-primary" %>
           <% end %>
         </div>

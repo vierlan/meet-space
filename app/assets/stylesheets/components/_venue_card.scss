@@ -7,34 +7,22 @@
   margin-bottom: 20px;
   margin-top: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-  // .photo-div {
-  //   // display: flex;
-  //   width: 80%;
-
-
-  // }
-}
-.small-venue-img {
-  width: 100x;
-  height: auto;
 }
 
+.venue-card h2 {
+  margin-bottom: 10px;
+}
+
+.venue-card p {
+  margin-bottom: 5px;
+}
 .venue-img {
-  width: 80%;
+  width: 100%;
   height: auto;
   border-radius: 8px;
   margin-bottom: 5px;
 
 }
-
-
-
-
-// .venue-card .venue-images img {
-//   max-width: 50%;
-//   height: auto;
-//   width: 100%;
-//   border-radius: 8px;
-//   margin-bottom: 5px;
-// }
+.venue-card .venue-images {
+  margin-top: 10px;
+}
