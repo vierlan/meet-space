@@ -1,4 +1,4 @@
-<h1>Pages#home</h1>
+<h1>Pages#home page </h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 <% if user_signed_in? %>
   <h1><%= current_user.username  %></h1>
@@ -8,3 +8,12 @@
   <%= link_to "log in", new_user_session_path %>
   <%= link_to "sign up", new_user_registration_path %>
   <% end %>
+
+  <!-- Banner div -->
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1><%= "Le Wagon brings " + content_tag(:strong, "tech skills") + " to " + content_tag(:strong, "creative people") + "!" %></h1>
+    <p>Change your life and learn to code at one of our campuses around the world.</p>
+    <%= link_to "Apply now", "#", class: "btn btn-flat" %>
+  </div>
+</div>

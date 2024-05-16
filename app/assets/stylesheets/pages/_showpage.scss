@@ -1,5 +1,5 @@
 .show-container {
-  width: 95%;
+  width: 1200px;
   margin: auto;
   height: 100%;
   border: 1px solid #ccc;
@@ -8,21 +8,19 @@
   padding: 10px;
 }
 
-.venue-banner {        // banner image ... come back and fix with TA
+.venue-banner {
   width: 100%;
   height: 35vh;
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  padding: 10px;
-  object-fit: cover;
 }
 
 .banner-image {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: contain; /* Ensures the image fits the container without being distorted */
 }
 
 .venue-photos {
@@ -33,17 +31,16 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 10px;
   height: 25vh;
-
+  overflow: hidden;
 }
 
 .photo-image {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: contain; /* Ensures the image fits the container without being distorted */
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 10px;
 }
 
 .venue-details {
@@ -61,7 +58,7 @@
 }
 
 .venue-description-container {
-  flex: 0 0 70%; // This will make the venue description take up 70% of the parent div
+  flex: 0 0 70%; /* This will make the venue description take up 70% of the parent div */
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -69,7 +66,8 @@
 }
 
 .booking-form-container {
-  flex: 0 0 30%; // This will make the booking form take up 30% of the parent div
+  width: 500px;
+  flex: 0 0 30%; /* This will make the booking form take up 30% of the parent div */
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -77,15 +75,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  margin-left: 30%; // Adjust this value as needed
-}
-
-.booking-form {
-  width: 400px;
-  max-width: 500px; // Adjust this value as needed
-  display: flex;
-  flex-direction: column;
   align-items: center;
 }
 
