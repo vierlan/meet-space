@@ -13,10 +13,33 @@
       <p><strong>Capacity:</strong> <%= venue.capacity %></p>
       <div><%= link_to "view this venue", venue_path(venue) %></div>
       <% if venue.photos.attached? %>
-        <div class="venue-images" style = "max-width: 200px; height: auto;">
-          <% venue.photos.each do |photo| %>
-            <%= image_tag photo, style: "max-width: 100%; height: auto;" %>
-          <% end %>
+        <% @venue = venue %>
+
+        <div class="card">
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <% @venue.photos.each_with_index do |photo, index| %>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= index %>" aria-label="Slide <%= index + 1 %>"></button>
+                <% end %>
+              </div>
+            <div class="carousel-inner">
+              <% @venue.photos.each_with_index do |photo, index| %>
+                <div class="carousel-item <%= "active" if index.zero? %>">
+                  <%= cl_image_tag photo.key, alt: @venue.name, class: "d-block w-100" %>
+                </div>
+              <% end %>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
         </div>
       <% else %>
         <p>No images available for this venue.</p>
