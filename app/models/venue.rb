@@ -7,13 +7,14 @@ class Venue < ApplicationRecord
   validates :address, presence: true
   validates :category, presence: true
   validates :capacity, presence: true
+  validates :description, length: { maximum: 1000 }, allow_blank: true
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
   include PgSearch::Model
   pg_search_scope :search_by_name_and_facilities,
-    against: [ :name, :facilities ],
+    against: [ :name, :facilities, :description ],
     using: {
       tsearch: { prefix: true }
     }
