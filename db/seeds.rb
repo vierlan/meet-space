@@ -1,4 +1,5 @@
 require 'faker'
+require 'open-uri'
 
 puts "Cleaning database..."
 Booking.destroy_all
@@ -23,43 +24,31 @@ puts "Creating users..."
   )
 end
 
-image_directory = "app/assets/images/"
-venue_images = ["meet.png"]
-categories = [:network, :meet, :celebrate]
-facilities_array = [:wifi, :coffee, :tv, :pool, :beach, :spa]
 
-3.times do |i|
+categories = [:network, :meet, :celebrate]
+facilities_array = [:wifi, :coffee, :tv, :pool, :tv, :spa, :music, :bar, :restaurant]
+address_array = [ "116 New Oxford St, London WC1A 1HH", "49 Queensway, London W2 4QH", "51 Great Russell St, London WC1B 3BA", "G13, 381 Oxford St, London W1C 2JS", "S Colonnade, London E14 4QT",  "26 Pembridge Rd, Notting Hill Gate, London W11 3HL", "79 St John's Wood High St, London NW8 7NL", "12 A Mepham St, London SE1 8SE", "68 Victoria Rd, Surbiton KT6 4NR", "20 St John's Hill, London SW11 1RU" ]
+10.times do |i|
   new_venue = Venue.new(
     name: Faker::Restaurant.unique.name,
-    facilities: facilities_array.sample(3).map(&:to_s).join(", "),
-    address: "10 Mulberry walk, southampton, SO15 5GA",
+    facilities: facilities_array.sample(4).map(&:to_s).join(", "),
+    description: Faker::Restaurant.description,
+    address: address_array[i % address_array.length],
     category: categories.sample,
     capacity: Faker::Number.between(from: 10, to: 100),
     user_id: User.ids.sample
-  )
+    )
+   3.times do
+    random_number = rand(1..26)
+    file = File.open "app/assets/images/venue_images/#{random_number}.jpg"
 
-  image_filename = venue_images.sample
-  image_path = File.join(image_directory, image_filename)
-
-  if File.exist?(image_path)
-
-    new_venue.photos.attach(io: File.open(image_path), filename: image_filename, content_type: "image/jpeg")
-  else
-    puts "Image file not found: #{image_path}"
-  end
+    new_venue.photos.attach(io: file, filename: "#{random_number}.jpg", content_type: "image/jpg")
+   end
+ 
 
   new_venue.save
 end
 
-# puts "Creating bookings..."
 
-# 5.times do
-#   Booking.create!(
-#     comment: Faker::Lorem.sentence,
-#     confirmed: false,
-#     user_id: User.ids.sample,
-#     venue_id: Venue.ids.sample
-#   )
-# end
 
 puts "Seeding completed!"

@@ -22,14 +22,15 @@
           <p><strong>Hire Details:</strong> Venue hire for network</p>
           <p><strong>Max capacity:</strong> <%= @venue.capacity %>pp</p>
           <p><strong>Location:</strong> <%= @venue.address %></p>
+          <p><strong>Description:</strong> <%= @venue.description %></p>
         </div>
       </div>
       <div class="booking-form-container">
         <div class="booking-form">
           <h2>Book this Venue</h2>
           <%= simple_form_for [@venue, @booking] do |f| %>
-            <%= f.input :start_date %>
-            <%= f.input :end_date %>
+            <%= f.input :booking_date %>
+
             <%= f.submit "Reserve", class: "btn btn-primary" %>
           <% end %>
         </div>
