@@ -8,7 +8,7 @@
   <div class="venue-photos">
     <% if @venue.photos.attached? && @venue.photos[0].present? %>
       <% @venue.photos.each_with_index do |photo, index| %>
-        <% next if index.zero? || photo.nil? %>
+        <% next if index.zero? || photo.nil? || index > 4 %>
         <%= cl_image_tag photo.key, alt: @venue.name, class: "venue-img" %>
       <% end %>
     <% end %>
@@ -24,16 +24,19 @@
           <p><strong>Location:</strong> <%= @venue.address %></p>
         </div>
       </div>
-      <% render "reviews/new" %>
+    </div>
+      <%# render "reviews/new" %>
       <div class="booking-form-container">
         <div class="booking-form">
           <h2>Book this Venue</h2>
-          <%= simple_form_for [@venue, @booking] do |f| %>
-            <%= f.input :start_date %>
-            <%= f.input :end_date %>
+          <%= simple_form_for [@venue, @booking], data: { controller: 'flatpickr' } do |f| %>
+            <%= f.input :booking_date, as: :string, input_html: { data: { flatpickr_target: "bookingDate" } } %>
+            <%= f.input :start_time, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+            <%= f.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
+            <%= f.input :comment, placeholder: "Please type a message to the venue host." %>
             <%= f.submit "Reserve", class: "btn btn-primary" %>
           <% end %>
-        </div>
+
       </div>
     </div>
   </div>

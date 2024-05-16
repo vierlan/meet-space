@@ -1,6 +1,8 @@
 class ReviewsController < ApplicationController
   def new
     @review = Review.new
+    authorize @review
+    @venue = Venue.find(params[:venue_id])
   end
 
   def create
