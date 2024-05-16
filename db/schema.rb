@@ -52,8 +52,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_15_141213) do
     t.date "start_date"
     t.date "end_date"
     t.date "booking_date"
-    t.date "start_date"
-    t.date "end_date"
     t.date "booking_start"
     t.date "booking_end"
     t.index ["user_id"], name: "index_bookings_on_user_id"
