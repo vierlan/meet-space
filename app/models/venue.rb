@@ -13,7 +13,7 @@ class Venue < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_by_name_and_facilities,
-    against: [ :name, :facilities ],
+    against: [ :name, :facilities, :description ],
     using: {
       tsearch: { prefix: true }
     }
