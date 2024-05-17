@@ -2,7 +2,9 @@ class BookingsController < ApplicationController
 
 
   before_action :set_venue, only: [:create]
-  before_action :set_booking, only: [:destroy]
+  before_action :set_booking, only: [:destroy, :confirm]
+  before_action :authenticate_user!
+
 
   def new
     @booking = Booking.new
@@ -22,8 +24,20 @@ class BookingsController < ApplicationController
     end
   end
 
+  # check below
+  def confirm
+    authorize @booking
+
+    if @booking.update(confirmed: true)
+      redirect_to profile_path(current_user), notice: 'Booking was successfully confirmed.'
+    else
+      redirect_to profile_path(current_user), alert: 'Unable to confirm booking.'
+    end
+  end
+
+
   def destroy
-    @booking = Booking.find(params[:id])
+    # @booking = Booking.find(params[:id])
     authorize @booking
     @booking.destroy
     redirect_to profile_path, notice: 'Booking was successfully destroyed.'
@@ -42,5 +56,5 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:booking_date, :comment)
   end
-end
 
+end
