@@ -1,1 +1,181 @@
-// Specific CSS for your home-page
+ // Carousel style
+.my-carousel {
+  width: auto;
+  height: 30vw;
+  margin-right: 10px;
+  margin-left: 10px;
+  overflow: hidden;
+
+.my-carousel .carousel-inner {
+  width: 100%;
+  height: 100%;
+}
+
+.my-carousel .carousel-item {
+  width: 100%;
+  height: 100%;
+}
+
+.my-carousel .carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+}
+
+ .greeting{
+  text-align: center;
+  padding-top: 30px;
+ }
+
+ .cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+// cards style brothaaa      come back and see how looks on mobile
+
+
+.cards-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card-item {
+  flex: 1 1 18rem;
+  max-width: 18rem;
+  margin: 0 15px;
+  text-align: center;
+  color: white;
+}
+
+.card-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.card-text {
+  margin-top: 10px;
+}
+
+ // Description style
+
+ .description {
+  text-align: center;
+  color: white;
+  padding: 50px;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+// footer
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+footer {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #d3d3d3;
+  padding: 20px;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d3d3d3;
+  padding: 0px;
+  position: relative;
+  margin-top: 70px;
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.footer-content h2 {
+  margin: 0;
+}
+
+.footer-content p {
+  margin: 5px 0;
+}
+
+.footer-content address {
+  margin: 0;
+}
+
+.social-icons {
+  position: absolute;
+  right: 20px;
+  display:flex;
+  gap:10px;
+
+}
+
+.social-icons a {
+
+  display: inline-block;
+}
+
+.social-icons img {
+  width: 10px;
+  height: 10px;
+}
+
+
+
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .main-page {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .main-page {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .main-page {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .main-page {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .main-page {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
