@@ -14,5 +14,10 @@ Rails.application.routes.draw do
     resources :bookings, except: [:show]
     resources :reviews, only: %i[new create]
   end
-  resources :bookings, only: [:destroy]
+
+  resources :bookings, only: [:destroy] do
+    member do
+      patch :confirm
+    end
+  end
 end
