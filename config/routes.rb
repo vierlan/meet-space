@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :venues do
     resources :bookings, except: [:show]
+    resources :reviews, only: %i[new create]
   end
   resources :bookings, only: [:destroy]
 end

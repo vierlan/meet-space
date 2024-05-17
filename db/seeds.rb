@@ -40,11 +40,12 @@ address_array = [ "116 New Oxford St, London WC1A 1HH", "49 Queensway, London W2
     )
    3.times do
     random_number = rand(1..26)
-    file = File.open "app/assets/images/venue_images/#{random_number}.jpg"
+    # file = File.open "app/assets/images/venue_images/#{random_number}.jpg"
+    file = URI.open("https://res.cloudinary.com/dwsotsv3c/image/upload/v1715860757/shop%20fronts%20meet/3_jjfd75.jpg")
 
     new_venue.photos.attach(io: file, filename: "#{random_number}.jpg", content_type: "image/jpg")
    end
- 
+
 
   new_venue.save
 end
