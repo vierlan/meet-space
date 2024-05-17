@@ -23,6 +23,7 @@
           <p><strong>Max capacity:</strong> <%= @venue.capacity %>pp</p>
           <p><strong>Location:</strong> <%= @venue.address %></p>
           <p><strong>Description:</strong> <%= @venue.description %></p>
+          <%= link_to "Leave a review ", new_venue_review_path(@venue) %>
         </div>
       </div>
     </div>

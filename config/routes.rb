@@ -16,8 +16,11 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: [:destroy] do
+     resources :chatrooms, only: %i[index show create] do
+    resources :messages, only: %i[create]
     member do
       patch :confirm
     end
   end
+end
 end
