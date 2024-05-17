@@ -4,47 +4,21 @@
 <div class="container">
 <%= render "shared/search" %>
 <div class="venues">
-  <% @venues.each do |venue| %>
+  <% @venues.each_with_index do |venue, index| %>
     <div class="venue-card">
       <h2><%= venue.name %></h2>
+      <p> Owner: <%= venue.user.email %></p>
       <p><strong>Category:</strong> <%= venue.category %></p>
       <p><strong>Address:</strong> <%= venue.address %></p>
       <p><strong>Facilities:</strong> <%= venue.facilities %></p>
       <p><strong>Capacity:</strong> <%= venue.capacity %></p>
       <div><%= link_to "view this venue", venue_path(venue) %></div>
       <% if venue.photos.attached? %>
-        <% @venue = venue %>
-
-        <div class="card">
-          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <% @venue.photos.each_with_index do |photo, index| %>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= index %>" aria-label="Slide <%= index + 1 %>"></button>
-                <% end %>
-              </div>
-            <div class="carousel-inner">
-              <% @venue.photos.each_with_index do |photo, index| %>
-                <div class="carousel-item <%= "active" if index.zero? %>">
-                  <%= cl_image_tag photo.key, alt: @venue.name, class: "d-block w-100" %>
-                </div>
-              <% end %>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-        </div>
+        <%= render 'shared/carousel', venue: venue, index: index %>
       <% else %>
         <p>No images available for this venue.</p>
       <% end %>
-        <%# <div><%= link_to "Book this venue", new_venue_booking_path(venue), class: "btn" %></div> 
+        <%# <div><%= link_to "Book this venue", new_venue_booking_path(venue), class: "btn" %></div>
     </div>
   <% end %>
 </div>
@@ -53,4 +27,5 @@
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+</div>
 </div>

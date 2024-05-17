@@ -14,7 +14,8 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
-h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 p {
+.h6, h5, .h5, .h4, h3, .h3, h2, .h2, h1, .h1, p {
   font-family: $headers-font;
-  color: whitesmoke !important;
+  color: whitesmoke;
 }
+// $body-color: white;

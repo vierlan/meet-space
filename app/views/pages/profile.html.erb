@@ -42,6 +42,7 @@
           </div>
         <% end %>
 
+          <div ><%= link_to "add a venue", new_venue_path, class: "btn btn-primary" %> </div>
     </div>
 
     <div class="col-sm-12 col-md-6 col-content">
@@ -50,12 +51,38 @@
         <ul class="list-group">
           <% @bookings.each do |booking| %>
             <li class="list-group-item">
+              <p><strong>Venue Name:</strong> <%= booking.venue.name %></p>
               <p><strong>Venue Owner:</strong> <%= booking.venue.user.email %></p>
               <p><strong>Booking Request from:</strong> <%= booking.user.email %></p>
               <p><strong>From:</strong> <%= booking.booking_date %></p>
-
               <p><strong>Message:</strong> <%= booking.comment %></p>
               <p><strong>Confirmed:</strong> <%= booking.confirmed %></p>
+            </li>
+          <% end %>
+          <%= link_to "Chat", chatrooms_path %>
+        </ul>
+        <h2>My requests</h2>
+        <ul class="list-group">
+          <% @requests.each do |request| %>
+            <li class="list-group-item">
+              <p><strong>Venue Owner:</strong> <%= request.venue.user.email %></p>
+              <p><strong>Booking Request from:</strong> <%= request.user.email %></p>
+              <p><strong>Venue</strong> <%= request.venue.name %></p>
+              <p><strong>From:</strong> <%= request.booking_date %></p>
+              <p><strong>Status:</strong> <%= request.confirmed %></p>
+              <p><strong>Message:</strong> <%= request.comment %></p>
+
+              <%# <% if request.venue.user == current_user && !request.confirmed %>
+              <%# <%= link_to 'Confirm Booking', confirm_booking_path(request), data: { 'turbo-method': :patch }, class: 'btn btn-primary' %>
+              <%# <% end %>
+
+              <% if request.venue.user == current_user && !request.confirmed %>
+              <%= link_to 'Pending', confirm_booking_path(request), data: { 'turbo-method': :patch }, class: 'btn btn-warning' %>
+              <% elsif request.confirmed %>
+              <%= button_tag 'Confirmed', class: 'btn btn-success', disabled: true %>
+              <% end %>
+
+<%= link_to 'Back', profile_path %>
             </li>
           <% end %>
         </ul>
@@ -63,7 +90,4 @@
       </div>
    </div>
   </div>
-</div>
-<div class="test">
-<%= cl_image_tag "https://res.cloudinary.com/dwsotsv3c/image/upload/v1715860750/shop%20fronts%20meet/7_cjr4lj.jpg", crop: :fill, width: 300, height: 200 %>
 </div>

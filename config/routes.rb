@@ -12,6 +12,15 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :venues do
     resources :bookings, except: [:show]
+    resources :reviews, only: %i[new create]
   end
-  resources :bookings, only: [:destroy]
+
+  resources :bookings, only: [:destroy] do
+     resources :chatrooms, only: %i[index show create] do
+    resources :messages, only: %i[create]
+    member do
+      patch :confirm
+    end
+  end
+end
 end

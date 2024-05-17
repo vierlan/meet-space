@@ -1,6 +1,7 @@
 class Venue < ApplicationRecord
   belongs_to :user
   has_many :bookings, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   has_many_attached :photos
   validates :name, presence: true
   validates :address, presence: true
@@ -13,7 +14,7 @@ class Venue < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_by_name_and_facilities,
-    against: [ :name, :facilities ],
+    against: [ :name, :facilities, :description ],
     using: {
       tsearch: { prefix: true }
     }

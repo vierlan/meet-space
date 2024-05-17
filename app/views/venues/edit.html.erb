@@ -13,6 +13,8 @@
         </div>
         <%= f.input :facilities %>
         <%= f.input :address %>
+        <%= f.input :description %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.submit class: 'btn btn-flat' %>
         <% end %>
       </div>
