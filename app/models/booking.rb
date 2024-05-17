@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :venue
+
   has_one :chatroom, dependent: :destroy
 
   after_create :create_chatroom_with_initial_message
@@ -26,4 +27,5 @@ class Booking < ApplicationRecord
       chatroom: chatroom
     )
   end
+
 end

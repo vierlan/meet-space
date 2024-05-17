@@ -1,10 +1,92 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="main-page">
+
+<div class="container-fluid">
+  <div id="carouselExampleSlidesOnly" class="carousel slide my-carousel" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= image_tag("1", class: "d-block w-100", alt: "..") %>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag("2", class: "d-block w-100", alt: "...") %>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag("3", class: "d-block w-100", alt: "...") %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="greeting">
+  <h1>MEETSPACE</h1>
+  <h3>Network x Meet x Spaces</h3>
+</div>
+
+
+
+<div class="cards-container">
+
+<div class="card-item">
+  <%= cl_image_tag("5x14nzb2zx062r5m2ibfbtmxf6ej", width: 300, height: 300, crop: :fill) %>
+  <div class="card-text">Network</div>
+</div>
+
+<div class="card-item">
+  <%= cl_image_tag("focdepct0ot1s1ufzk6fhzij2nlg", width: 300, height: 300, crop: :fill) %>
+  <div class="card-text">Meet</div>
+</div>
+
+<div class="card-item">
+  <%= cl_image_tag("jfrhvr8s3iavs0xv8q963dq7r7xc", width: 300, height: 300, crop: :fill) %>
+  <div class="card-text">Celebrate</div>
+</div>
+
+</div>
+
+
+<div class="description">
+  <h3> Looking for a venue for your next networking meeting or event? Meetspace can help connect you with the perfect venue to fit your needs. Whether for a group of 3 or 300, our carefully selected venue hosts will tailor your networking experiences to your needs.</h3>
+</div>
+
+
+
+
+<div class="cards-container">
+  <div class="card-item">
+    <%= cl_image_tag("jfrhvr8s3iavs0xv8q963dq7r7xc", width: 300, height: 300, crop: :fill) %>
+  </div>
+  <div class="card-item">
+    <%= cl_image_tag("jfrhvr8s3iavs0xv8q963dq7r7xc", width: 300, height: 300, crop: :fill) %>
+  </div>
+</div>
+
+<footer>
+<div class="footer-content">
+<h2>Meetspace</h2>
+<p>Network &lt;&gt; Meet &lt;&gt; Spaces</p>
+<address>
+    190 Some Road,<br>
+    Some city,<br>
+    Some country
+</address>
+</div>
+<div class="social-icons">
+<a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+<a href="#"><img src="linkedin-icon.png" alt="LinkedIn"></a>
+<a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+<a href="#"><img src="youtube-icon.png" alt="YouTube"></a>
+</div>
+    </footer>
+
+
 <% if user_signed_in? %>
-  <h1><%= current_user.username  %></h1>
+  <h1><%= current_user.username %></h1>
   <%= link_to "view our venues", venues_path %>
   <%= link_to "add a venue", new_venue_path %>
 <% else %>
   <%= link_to "log in", new_user_session_path %>
   <%= link_to "sign up", new_user_registration_path %>
-  <% end %>
+<% end %>
+
+
+
+</div>

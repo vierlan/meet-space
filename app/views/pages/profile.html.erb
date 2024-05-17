@@ -51,10 +51,10 @@
         <ul class="list-group">
           <% @bookings.each do |booking| %>
             <li class="list-group-item">
+              <p><strong>Venue Name:</strong> <%= booking.venue.name %></p>
               <p><strong>Venue Owner:</strong> <%= booking.venue.user.email %></p>
               <p><strong>Booking Request from:</strong> <%= booking.user.email %></p>
               <p><strong>From:</strong> <%= booking.booking_date %></p>
-
               <p><strong>Message:</strong> <%= booking.comment %></p>
               <p><strong>Confirmed:</strong> <%= booking.confirmed %></p>
             </li>
@@ -67,14 +67,25 @@
             <li class="list-group-item">
               <p><strong>Venue Owner:</strong> <%= request.venue.user.email %></p>
               <p><strong>Booking Request from:</strong> <%= request.user.email %></p>
+              <p><strong>Venue</strong> <%= request.venue.name %></p>
               <p><strong>From:</strong> <%= request.booking_date %></p>
-
+              <p><strong>Status:</strong> <%= request.confirmed %></p>
               <p><strong>Message:</strong> <%= request.comment %></p>
-              <p><strong>Confirmed:</strong> <%= request.confirmed %></p>
+
+              <%# <% if request.venue.user == current_user && !request.confirmed %>
+              <%# <%= link_to 'Confirm Booking', confirm_booking_path(request), data: { 'turbo-method': :patch }, class: 'btn btn-primary' %>
+              <%# <% end %>
+
+              <% if request.venue.user == current_user && !request.confirmed %>
+              <%= link_to 'Pending', confirm_booking_path(request), data: { 'turbo-method': :patch }, class: 'btn btn-warning' %>
+              <% elsif request.confirmed %>
+              <%= button_tag 'Confirmed', class: 'btn btn-success', disabled: true %>
+              <% end %>
+
+<%= link_to 'Back', profile_path %>
             </li>
           <% end %>
         </ul>
-
 
       </div>
    </div>

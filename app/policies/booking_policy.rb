@@ -23,7 +23,13 @@ class BookingPolicy < ApplicationPolicy
     create?
   end
 
+
   def create?
     true
+  end
+
+  # check below
+  def confirm?
+    user == record.venue.user
   end
 end
