@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     @review.venue = Venue.find(params[:venue_id])
     if @review.save
-      redirect_to new_review_path
+      redirect_to venue_path(@review.venue)
     else
       render :new, status: :unprocessable_entity
       flash[:alert] = "Something went wrong."
