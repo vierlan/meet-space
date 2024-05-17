@@ -1,0 +1,64 @@
+/* Footer style brothaa */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d3d3d3;
+  padding: 0px;
+  position: relative;
+  margin-top: 70px;
+}
+
+.footer-content {
+  text-align: center;
+
+}
+
+.footer-content h2 {
+  margin: 0;
+  color: black !important;
+}
+
+.footer-content p {
+  margin: 5px 0;
+
+}
+
+.footer-content address {
+  margin: 0;
+  color: black;
+}
+
+.social-icons {
+  position: absolute;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons a {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: inherit;
+}
+
+.social-icons .fa-facebook {
+  color: #3b5998;
+}
+
+.social-icons .fa-linkedin {
+  color: #0077b5;
+}
+
+.social-icons .fa-instagram {
+  color: #e4405f;
+}
+
+.social-icons .fa-youtube {
+  color: #ff0000;
+}
