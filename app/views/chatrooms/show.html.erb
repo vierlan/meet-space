@@ -2,18 +2,23 @@
   <div class="container chatroom"
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
-  >
-    <h2>#<%= "#{@chatroom.name}, #{@chatroom.booking.venue.name}, #{@chatroom.booking.booking_date}" %></h2>
+  data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
+    <h2>#<%= "#{@chatroom.booking.venue.name} booking on #{@chatroom.booking.booking_date}" %></h2>
 
   <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
+  <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+    <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
       <%= render "messages/message", message: message %>
-    <% end %>
+    </div>
+  </div>
+<% end %>
   </div>
   </div>
 
+  <div class="container" >
   <%= simple_form_for [@chatroom, @message],
-   html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
+   html: {class: "d-flex", data: { action: "turbo:submit-end->chatroom-subscription#resetForm" } } do |f|
    %>
     <%= f.input :content,
       label: false,
@@ -22,4 +27,5 @@
     %>
     <%= f.submit "Send", class: "btn btn-primary mb-3" %>
   <% end %>
+  </div>
 </div>

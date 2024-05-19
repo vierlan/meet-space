@@ -16,13 +16,13 @@ class Booking < ApplicationRecord
 
     # Create an initial message to establish the relationship between users and chatroom
     Message.create!(
-      content: "Chatroom created for booking #{id}",
+      content: "#{comment}  #{id}",
       user: user, # Booking user
       chatroom: chatroom
     )
 
     Message.create!(
-      content: "Chatroom created for booking #{id}",
+      content: "Thank you for making a request to book this venue.  The host will be in touch shortly.",
       user: venue.user, # Venue owner
       chatroom: chatroom
     )
