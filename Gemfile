@@ -30,7 +30,7 @@ gem "pg_search"
 gem "faker"
 gem "cloudinary"
 # Use Redis adapter to run Action Cable in production
-# gem "redis", ">= 4.0.1"
+gem "redis", ">= 4.0.1"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -46,7 +46,7 @@ gem "bootsnap", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
-gem 'redis', '~> 5.2'
+# gem 'redis', '~> 5.2'
 gem 'bootstrap', '~> 5.3.3'
 gem "devise"
 gem "autoprefixer-rails"
