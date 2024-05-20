@@ -46,7 +46,9 @@
     </div>
 
     <div class="col-sm-12 col-md-6 col-content">
-
+      <div class="chat-link my-25">
+        <%= link_to "View my messages", chatrooms_path, class: "btn btn-primary" %>
+      </div>
         <h2>My bookings</h2>
         <ul class="list-group">
           <% @bookings.each do |booking| %>
@@ -59,7 +61,7 @@
               <p><strong>Confirmed:</strong> <%= booking.confirmed %></p>
             </li>
           <% end %>
-          <%= link_to "Chat", chatrooms_path %>
+
         </ul>
         <h2>My requests</h2>
         <ul class="list-group">

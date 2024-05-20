@@ -40,3 +40,4 @@
 *.swp
 .DS_Store
 .env*
+# app/assets/images

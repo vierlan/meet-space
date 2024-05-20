@@ -4,13 +4,13 @@
     <div id="carouselExampleSlidesOnly" class="carousel slide my-carousel" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <%= image_tag('1.jpg', alt: "..") %>
+          <%= cl_image_tag('68akgpaq438dajje0egwjw2hpvqo', alt: "..") %>
         </div>
         <div class="carousel-item">
-          <%= image_tag('2.jpg', alt: "...") %>
+          <%= cl_image_tag('htbvi9pew9xn0zxb163vzbmn146v', alt: "...") %>
         </div>
         <div class="carousel-item">
-          <%= image_tag('3.jpg', alt: "...") %>
+          <%= cl_image_tag('htbvi9pew9xn0zxb163vzbmn146v', alt: "...") %>
         </div>
       </div>
     </div>
@@ -23,21 +23,22 @@
 
   <div class="cards-container">
     <div class="card-item">
-      <%= image_tag("4.jpg", width: 300, height: 300, crop: :fill) %>
+      <%= cl_image_tag("mo7796qdc0me97kz1j5l47kxrjon", width: 300, height: 300, crop: :fill) %>
       <div class="card-text">
         <%= link_to 'Network', venues_path, class: 'btn btn-primary' %>
       </div>
     </div>
 
     <div class="card-item">
-      <%= image_tag("1.jpg", width: 300, height: 300, crop: :fill) %>
+      <%= cl_image_tag("224lmafhsxwiwudoj92obxzscinr", width: 300, height: 300, crop: :fill) %>
       <div class="card-text">
         <%= link_to 'Meet', venues_path, class: 'btn btn-primary' %>
       </div>
     </div>
 
     <div class="card-item">
-      <%= image_tag("2.jpg", width: 300, height: 300, crop: :fill) %>
+      <%= cl_image_tag("2xx54ivsdp51nl0t91tkou5q5kxp
+", width: 300, height: 300, crop: :fill) %>
       <div class="card-text">
         <%= link_to 'Celebrate', venues_path, class: 'btn btn-primary' %>
       </div>
@@ -50,7 +51,7 @@
 
   <div class="cards-container d-flex justify-content-around my-4">
     <div class="card-item card owner">
-      <%= image_tag("james_avatar.jpg", class: "card-img-top", crop: :fill) %>
+      <%= cl_image_tag("qpz9ubdwgl0rdv5zk4kwl99nhk4g", class: "card-img-top", crop: :fill) %>
       <div class="card-body">
         <h5 class="card-title">For Venue Owners</h5>
         <p class="card-text">Advertise your venue and reach more customers by offering your space for networking events, meetings, and celebrations. Join Meetspace to showcase your venue and attract renters.</p>
@@ -59,7 +60,7 @@
     </div>
 
     <div class="card-item card owner">
-      <%= image_tag('t.jpg', class: "card-img-top", crop: :fill) %>
+      <%= cl_image_tag('ve2lf9kqfsqv62gn7r938jjta9j0', class: "card-img-top", crop: :fill) %>
       <div class="card-body">
         <h5 class="card-title">For Event Planners</h5>
         <p class="card-text">Find the perfect venue for your next event. Whether it's a small meeting or a large celebration, Meetspace connects you with venue owners offering the perfect space for your needs.</p>

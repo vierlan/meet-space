@@ -1,12 +1,16 @@
 /* Footer style brothaa */
-footer {
+.footer {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #d3d3d3;
   padding: 0px;
   position: relative;
-  margin-top: 70px;
+  margin-top: 100px;
+  //position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
 .footer-content {
@@ -30,6 +34,7 @@ footer {
 }
 
 .social-icons {
+  font-size: 40px;
   position: absolute;
   right: 20px;
   display: flex;

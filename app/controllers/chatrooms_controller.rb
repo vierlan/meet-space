@@ -8,7 +8,6 @@ class ChatroomsController < ApplicationController
     combined_booking_ids = user_booking_ids + venue_booking_ids
 
     @chatrooms = Chatroom.where(booking_id: combined_booking_ids)
-
   end
 
   def create
