@@ -47,21 +47,31 @@ address_array = [
 ]
 
 image_urls = [
-  "https://photos.google.com/share/AF1QipOmpfXDZukYnZoWXfy7ygecfWtqalmpTXZ_I_mbdtvBezXl6xVaO08MmbYKLPTVNQ/photo/AF1QipMq5-1fHLnbvHdp1_HeU_yiwviiIrWb7agVy1fC?key=Q3Y1alNSLUtuSGp6RUlzeWhhSGE3UmNBUjVyRW1R",
-  "https://photos.google.com/share/AF1QipOmpfXDZukYnZoWXfy7ygecfWtqalmpTXZ_I_mbdtvBezXl6xVaO08MmbYKLPTVNQ/photo/AF1QipMvo5fKliGqrNIrCf9DRzWQk0G4G56FQYDGFqhy?key=Q3Y1alNSLUtuSGp6RUlzeWhhSGE3UmNBUjVyRW1R",
-  "https://photos.google.com/share/AF1QipOmpfXDZukYnZoWXfy7ygecfWtqalmpTXZ_I_mbdtvBezXl6xVaO08MmbYKLPTVNQ/photo/AF1QipMTV73wEMDKSrf6_tmmmAgWJugL6am14cwzDqam?key=Q3Y1alNSLUtuSGp6RUlzeWhhSGE3UmNBUjVyRW1R",
-  "https://photos.google.com/share/AF1QipOmpfXDZukYnZoWXfy7ygecfWtqalmpTXZ_I_mbdtvBezXl6xVaO08MmbYKLPTVNQ/photo/AF1QipO_96WLdjy1j7PzKeQ6wEcmwkmelyb_YKAW_CWC?key=Q3Y1alNSLUtuSGp6RUlzeWhhSGE3UmNBUjVyRW1R",
-  "https://photos.google.com/share/AF1QipOmpfXDZukYnZoWXfy7ygecfWtqalmpTXZ_I_mbdtvBezXl6xVaO08MmbYKLPTVNQ/photo/AF1QipMqAzg2CsAmG5wa2LSn-XxrcqQjyZy-D_03RinJ?key=Q3Y1alNSLUtuSGp6RUlzeWhhSGE3UmNBUjVyRW1R",
-  "https://photos.google.com/share/AF1QipOmpfXDZukYnZoWXfy7ygecfWtqalmpTXZ_I_mbdtvBezXl6xVaO08MmbYKLPTVNQ/photo/AF1QipP--M5As9CplSiE3M76LlY4Fv120llZ4-JjfKR2?key=Q3Y1alNSLUtuSGp6RUlzeWhhSGE3UmNBUjVyRW1R",
-  "https://photos.google.com/share/AF1QipOmpfXDZukYnZoWXfy7ygecfWtqalmpTXZ_I_mbdtvBezXl6xVaO08MmbYKLPTVNQ/photo/AF1QipMkOqhmzIhjubis393TSqTVOQP3UA1dZaUz6Tqf?key=Q3Y1alNSLUtuSGp6RUlzeWhhSGE3UmNBUjVyRW1R",
-  "https://photos.google.com/share/AF1QipOmpfXDZukYnZoWXfy7ygecfWtqalmpTXZ_I_mbdtvBezXl6xVaO08MmbYKLPTVNQ/photo/AF1QipPGoc8FkJxYtvK2nCgkTvVxhYYhlCy-0f0BSjPd?key=Q3Y1alNSLUtuSGp6RUlzeWhhSGE3UmNBUjVyRW1R",
-  "https://photos.google.com/share/AF1QipOmpfXDZukYnZoWXfy7ygecfWtqalmpTXZ_I_mbdtvBezXl6xVaO08MmbYKLPTVNQ/photo/AF1QipMN8SSsQv5vS9RKDeDD_0pYIPSiANu64YWFKFfM?key=Q3Y1alNSLUtuSGp6RUlzeWhhSGE3UmNBUjVyRW1R",
-  "https://photos.google.com/share/AF1QipOmpfXDZukYnZoWXfy7ygecfWtqalmpTXZ_I_mbdtvBezXl6xVaO08MmbYKLPTVNQ/photo/AF1QipM9UuGldY_CCYMSKqhDrtcIQa3z2u6yF2YrXX7b?key=Q3Y1alNSLUtuSGp6RUlzeWhhSGE3UmNBUjVyRW1R",
-  "https://photos.google.com/share/AF1QipOmpfXDZukYnZoWXfy7ygecfWtqalmpTXZ_I_mbdtvBezXl6xVaO08MmbYKLPTVNQ/photo/AF1QipMUBAcX34VeyrbCYwO_1uRZd5bwQYVQ2TH7iNHw?key=Q3Y1alNSLUtuSGp6RUlzeWhhSGE3UmNBUjVyRW1R",
-  "https://photos.google.com/share/AF1QipOmpfXDZukYnZoWXfy7ygecfWtqalmpTXZ_I_mbdtvBezXl6xVaO08MmbYKLPTVNQ/photo/AF1QipM9UuGldY_CCYMSKqhDrtcIQa3z2u6yF2YrXX7b?key=Q3Y1alNSLUtuSGp6RUlzeWhhSGE3UmNBUjVyRW1R",
-  "https://photos.google.com/share/AF1QipOmpfXDZukYnZoWXfy7ygecfWtqalmpTXZ_I_mbdtvBezXl6xVaO08MmbYKLPTVNQ/photo/AF1QipM11G0rSIEeJU7phQItesKqryZovjM2igpMxRvf?key=Q3Y1alNSLUtuSGp6RUlzeWhhSGE3UmNBUjVyRW1R",
-  "https://photos.google.com/share/AF1QipOmpfXDZukYnZoWXfy7ygecfWtqalmpTXZ_I_mbdtvBezXl6xVaO08MmbYKLPTVNQ/photo/AF1QipMNY7v_lKY88urS9ra4_5u02_L7Ro2i2IOx3qfr?key=Q3Y1alNSLUtuSGp6RUlzeWhhSGE3UmNBUjVyRW1R"
-
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1715943960/development/e5ugtni1whmznehyq3c51teqo1kx.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1715867709/development/q0sf3v6qgqymi501d7kfk75cg35g.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1715861459/development/66rb13qbdxkm0w518f2z3emavgak.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1715861458/development/7i359d30f5hgk15vqai8469u5zkh.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1715861456/development/vby9kn2lrso2pddpiowag8yg8wye.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1716160704/4_uzcqll.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1716160712/7_2_meeumh.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1716160712/7_up84xk.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1716160722/9_nqya9v.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1716160722/10_2_vjjohl.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1716160717/9_2_vacede.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1716160717/8_ydxbyd.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1716160717/8_2_y4bpt3.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1716160712/6_kxjsd8.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1716160703/4_2_vb9ek7.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1716160699/3_2_c692uo.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1716160699/2_2_rdtp14.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1716160695/1_2_ssdgdj.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1716160690/22_hbhet6.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1716160690/25_niddil.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1716160690/21_iwrvzd.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1716160690/20_vxsnuh.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1716160682/16_s7xvsn.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1715867709/development/bfykff3fnmj0icmwzl45pfk5j2rc.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1716160667/12_2_pmstl9.jpg",
   # Add more image URLs as needed
 ]
 
@@ -73,16 +83,16 @@ image_urls = [
     address: address_array[i % address_array.length],
     category: categories.sample,
     capacity: Faker::Number.between(from: 10, to: 100),
-    user: User.all.sample
-  )
+    user_id: User.ids.sample
+    )
+   5.times do
+    random_number = rand(1..1000)
+    image = image_urls.sample
+    # file = File.open "app/assets/images/venue_images/#{random_number}.jpg"
+    file = URI.open(image)
 
-  3.times do
-    image_url = image_urls.sample
-    file = URI.open(image_url)
-    new_venue.photos.attach(io: file, filename: File.basename(URI.parse(image_url).path), content_type: 'image/jpg')
+    new_venue.photos.attach(io: file, filename: "#{random_number}.jpg", content_type: "image/jpg")
+    new_venue.save!
+   end
   end
-
-  new_venue.save!
-end
-
 puts "Seeding completed!"

@@ -14,11 +14,6 @@ export default class extends Controller {
     console.log(`Subscribed to the chatroom with the id ${this.chatroomIdValue}.`)
   }
 
-  resetForm(event) {
-    event.target.reset()
-    console.log("form reset")
-  }
-
   disconnect() {
     console.log("Unsubscribed from the chatroom")
     this.subscription.unsubscribe()
@@ -34,6 +29,11 @@ export default class extends Controller {
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
   }
 
+  resetForm(event) {
+    event.target.reset()
+    console.log("form reset")
+  }
+  
   #buildMessageElement(currentUserIsSender, message) {
     return `
       <div class="message-row d-flex ${this.#justifyClass(currentUserIsSender)}">
