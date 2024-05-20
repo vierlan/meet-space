@@ -1,7 +1,14 @@
+<div class="container row justify-content-center">
+<h1>My messages</h1>
+</div>
 
-<h1>Chatrooms</h1>
-<ul>
   <% @chatrooms.each do |chatroom| %>
-    <li><%= link_to chatroom.name, chatroom_path(chatroom) %></li>
-  <% end %>
+    <% if current_user == chatroom.booking.user %>
+      <% other_user = chatroom.booking.venue.user.username%>
+    <% else %>
+      <% other_user = chatroom.booking.user.username %>
+    <% end %>
+    <li><%= link_to "#{chatroom.booking.venue.name} booking on #{chatroom.booking.booking_date} between you and #{other_user}", chatroom_path(chatroom) %></li>
+
+    <% end %>
 </ul>
