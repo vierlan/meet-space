@@ -4,6 +4,8 @@
      <% if @venue.photos.attached? && @venue.photos[0].present? %>
        <%= cl_image_tag @venue.photos[0].key, alt: @venue.name, class: "venue-img" %>
      <% end %>
+
+
   </div>
   <div class="venue-photos">
     <% if @venue.photos.attached? && @venue.photos[0].present? %>
@@ -12,6 +14,8 @@
         <%= cl_image_tag photo.key, alt: @venue.name, class: "venue-img" %>
       <% end %>
     <% end %>
+
+    
   </div>
   <div class="venue-details">
     <div class="description-and-booking-container">
