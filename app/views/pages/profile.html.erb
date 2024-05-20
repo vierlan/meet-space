@@ -37,10 +37,12 @@
             <div class="venue-actions">
               <%= link_to "View Details", venue_path(venue), class: "btn btn-primary btn-block" %>
               <%= link_to "Edit", edit_venue_path(venue), class: "btn btn-primary btn-block" %>
-              <%= link_to "Delete", venue_path(venue), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-block" %>
+              <%= link_to 'Delete', venue_path(venue), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+              <%# <%= link_to "Delete", venue_path(venue), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-block" %> 
             </div>
           </div>
         <% end %>
+
 
           <div ><%= link_to "add a venue", new_venue_path, class: "btn btn-primary" %> </div>
     </div>

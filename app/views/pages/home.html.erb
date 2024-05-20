@@ -21,25 +21,48 @@
     <h3>Network x Meet x Spaces</h3>
   </div>
 
+<!-- app/views/venues/index.html.erb -->
+
+
+
+
+
+
+
   <div class="cards-container">
     <div class="card-item">
-      <%= cl_image_tag("5x14nzb2zx062r5m2ibfbtmxf6ej", width: 300, height: 300, crop: :fill) %>
+      <%= cl_image_tag("6riy6ybm8mmu5ka1ls8ega8m9o6f", width: 300, height: 300, crop: :fill) %>
       <div class="card-text">
-        <%= link_to 'Network', venues_path, class: 'btn btn-primary' %>
+        <%# <%= link_to 'Network', venues_path, class: 'btn btn-primary' %>
+<div class="categories">
+  <%= link_to category_venues_path('network') do %>
+    <i class="icon networking-icon"></i> Network
+  <% end %>
       </div>
     </div>
 
+
     <div class="card-item">
-      <%= cl_image_tag("focdepct0ot1s1ufzk6fhzij2nlg", width: 300, height: 300, crop: :fill) %>
+      <%= link_to category_venues_path('social') do %>
+      <%= cl_image_tag("e6gf5ox5o6f04lhnp9zr0119y5pm", width: 300, height: 300, crop: :fill) %>
+      <% end %>
       <div class="card-text">
-        <%= link_to 'Meet', venues_path, class: 'btn btn-primary' %>
+        <%# <%= link_to 'Meet', venues_path, class: 'btn btn-primary' %>
+        <%= link_to category_venues_path('social') do %>
+          <i class="icon social-icon"></i> Social
+        <% end %>
       </div>
     </div>
 
+
     <div class="card-item">
-      <%= cl_image_tag("jfrhvr8s3iavs0xv8q963dq7r7xc", width: 300, height: 300, crop: :fill) %>
+      <%= cl_image_tag("zje7l9nbn41hy0bvi4xbkghkotgy", width: 300, height: 300, crop: :fill) %>
       <div class="card-text">
-        <%= link_to 'Celebrate', venues_path, class: 'btn btn-primary' %>
+        <%# <%= link_to 'Celebrate', venues_path, class: 'btn btn-primary' %>
+  <%= link_to category_venues_path('celebrate') do %>
+    <i class="icon celebration-icon"></i> Celebrate
+  <% end %>
+</div>
       </div>
     </div>
   </div>
@@ -67,5 +90,3 @@
       </div>
     </div>
   </div>
-
- 
