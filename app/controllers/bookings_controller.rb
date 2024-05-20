@@ -8,12 +8,13 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @venue = Venue.find(params[:venue_id])
   end
 
   def create
+    @venue = Venue.find(params[:venue_id])
     @booking = @venue.bookings.new(booking_params)
     @booking.user = current_user
-
     authorize @booking
 
     if @booking.save
@@ -54,7 +55,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:booking_date, :comment)
+    params.require(:booking).permit(:booking_date, :comment, :start_time, :end_time)
   end
 
 end
