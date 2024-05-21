@@ -1,56 +1,66 @@
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-md-8">
-      <!-- Venue Banner -->
-      <div class="venue-banner mb-4">
-        <% if @venue.photos.attached? && @venue.photos[0].present? %>
-          <%= cl_image_tag @venue.photos[0].key, alt: @venue.name, class: "img-fluid rounded" %>
-        <% end %>
-      </div>
 
-      <!-- Venue Photos -->
-      <div class="venue-photos mb-4">
-        <div class="row">
-          <% if @venue.photos.attached? && @venue.photos[0].present? %>
-            <% @venue.photos.each_with_index do |photo, index| %>
-              <% next if index.zero? || photo.nil? || index > 4 %>
-              <div class="col-md-3 mb-3">
-                <%= cl_image_tag photo.key, alt: @venue.name, class: "img-fluid rounded" %>
+        <div class="main-page">
+
+          <div class="container-top">
+            <div class="banner-picture">
+              <% if @venue.photos.attached? && @venue.photos[0].present? %>
+                <%= cl_image_tag @venue.photos[0].key, alt: @venue.name, class: "venue-main-img" %>
+              <% end %>
+            </div>
+            <div class="map">
+              <div style="width: 600px; height: 500px;"
+                data-controller="map"
+                data-map-markers-value="<%= @markers.to_json %>"
+                data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
               </div>
+            </div>
+          </div>
+
+          <div class="container-middle">
+
+            <div class="container-middle-card">
+              <div class="cards">
+
+
+                <% if @venue.photos.attached? && @venue.photos[0].present? %>
+                  <% @venue.photos.each_with_index do |photo, index| %>
+                <% next if index.zero? || photo.nil? || index > 2 %>
+                <div class="card" style="width: 18rem;">
+                  <%= cl_image_tag photo.key, alt: @venue.name, class: "venue-thumbnail-img" %>
+                  <div class="card-body">
+                  </div>
+                </div>
+
+                <% end %>
+                <% end %>
+              </div>
+
+
+              <div class="description"> <h2>Venue Description</h2>
+                <p><strong>Name:</strong> <%= @venue.name %></p>
+                <p><strong>Hire Details:</strong> Venue hire for network</p>
+                <p><strong>Max Capacity:</strong> <%= @venue.capacity %>pp</p>
+                <p><strong>Location:</strong> <%= @venue.address %></p>
+                <p><strong>Description:</strong> <%= @venue.description %></p>
+                <%= link_to "Leave a Review", new_venue_review_path(@venue), class: "btn btn-secondary" %>
+              </div>
+            </div>
+
+
+            <div class="form">
+            <h2>Book this Venue</h2>
+            <%= simple_form_for [@venue, @booking], data: { controller: 'flatpickr' } do |f| %>
+                <%= f.input :booking_date, as: :string, input_html: { placeholder: "Select booking date", data: { flatpickr_target: "bookingDate" } } %>
+                <%= f.input :start_time, as: :string, input_html: { placeholder: "Select start time", data: { flatpickr_target: "startTime" } } %>
+                <%= f.input :end_time, as: :string, input_html: { placeholder: "Select end time", data: { flatpickr_target: "endTime" } } %>
+                <%= f.input :comment, placeholder: "Please type a message to the venue host." %>
+                <%= f.submit "Reserve", class: "btn btn-primary" %>
             <% end %>
-          <% end %>
+            </div>
+       </div>
+        <div class="container-bottom">
+          <div class="reviews">
+          <h2>test review </h2>
+          </div>
         </div>
-      </div>
-
-      <!-- Venue Details -->
-      <div class="venue-details bg-light p-4 rounded">
-        <h2 class="mb-3">Venue Details</h2>
-        <p><strong>Name:</strong> <%= @venue.name %></p>
-        <p><strong>Hire Details:</strong> Venue hire for network</p>
-        <p><strong>Max Capacity:</strong> <%= @venue.capacity %>pp</p>
-        <p><strong>Location:</strong> <%= @venue.address %></p>
-        <p><strong>Description:</strong> <%= @venue.description %></p>
-        <%= link_to "Leave a Review", new_venue_review_path(@venue), class: "btn btn-primary mt-3" %>
-      </div>
-    </div>
-
-    <!-- Booking Form -->
-    <div class="col-md-4">
-      <div class="booking-form bg-light p-4 rounded mb-4">
-        <h2>Book this Venue</h2>
-        <%= simple_form_for [@venue, @booking], data: { controller: 'flatpickr' } do |f| %>
-          <%= f.input :booking_date, as: :string, input_html: { data: { flatpickr_target: "bookingDate" } }, class: "form-control mb-3" %>
-          <%= f.input :start_time, as: :string, input_html: { data: { flatpickr_target: "startTime" } }, class: "form-control mb-3" %>
-          <%= f.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime" } }, class: "form-control mb-3" %>
-          <%= f.input :comment, placeholder: "Please type a message to the venue host.", class: "form-control mb-3" %>
-          <%= f.submit "Reserve", class: "btn btn-primary w-100" %>
-        <% end %>
-      </div>
-
-      <div class="col-md-6">
-      <div style="width: 80%; height: 600px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
-    </div>
+</div>
