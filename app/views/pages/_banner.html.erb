@@ -1,0 +1,13 @@
+ <div class="banner">
+    <%= video_tag('meet_vid.mp4', autoplay: :autoplay, loop: :loop, muted: :muted ) %>
+  </div>
+  <div class="greeting text-center my-4">
+    <h1>MEETSPACE</h1>
+    <h3>Network x Meet x Spaces</h3>
+  </div>
+<div class="main-page">
+  <div class="cards-container">
+    <div class="card-item">
+      <%= link_to category_venues_path('network') do %>
+        <%= image_tag("4.jpg", width: 300, height: 300, crop: :fill, data: { action: "mouseover->description#showDescription mouseout->description#resetDescription", description: "Networking Venue Description" }) %>
+      <% end %>
