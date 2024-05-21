@@ -59,6 +59,12 @@ class VenuesController < ApplicationController
     redirect_to venues_path
   end
 
+  def category
+    @venues = Venue.where(category: params[:category])
+    render :index
+    authorize Venue
+  end
+
   private
 
   def set_venue
@@ -67,5 +73,8 @@ class VenuesController < ApplicationController
 
   def venue_params
     params.require(:venue).permit(:name, :address, :capacity, :facilities, :category, :description, photos: [])
+  end
+  def authorize_venue
+    authorize @venue
   end
 end

@@ -1,5 +1,4 @@
-<div class="main-page">
-
+<div class="main-page" data-controller="description">
   <div class="container-fluid">
     <div id="carouselExampleSlidesOnly" class="carousel slide my-carousel" data-bs-ride="carousel">
       <div class="carousel-inner">
@@ -15,39 +14,48 @@
       </div>
     </div>
   </div>
-
   <div class="greeting text-center my-4">
     <h1>MEETSPACE</h1>
     <h3>Network x Meet x Spaces</h3>
   </div>
-
+  <div class="main-description text-center my-4">
+    <h3 id="main-description-text"></h3>
+    <h3>Looking for a venue for your next networking meeting or event? Meetspace can help connect you with the perfect venue to fit your needs. Whether for a group of 3 or 300, our carefully selected venue hosts will tailor your networking experiences to your needs.</h3> %>
+  </div>
+  
   <div class="cards-container">
     <div class="card-item">
-      <%= image_tag("4.jpg", width: 300, height: 300, crop: :fill) %>
+      <%= link_to category_venues_path('network') do %>
+        <%= image_tag("4.jpg", width: 300, height: 300, crop: :fill, data: { action: "mouseover->description#showDescription mouseout->description#resetDescription", description: "Networking Venue Description" }) %>
+      <% end %>
+
       <div class="card-text">
         <%= link_to 'Network', venues_path, class: 'btn btn-primary' %>
       </div>
     </div>
-
     <div class="card-item">
-      <%= image_tag("1.jpg", width: 300, height: 300, crop: :fill) %>
+      <%= link_to category_venues_path('meet') do %>
+        <%= image_tag("1.jpg", width: 300, height: 300, crop: :fill, data: { action: "mouseover->description#showDescription mouseout->description#resetDescription", description: "Meeting Venue Description" }) %>
+      <% end %>
+
       <div class="card-text">
         <%= link_to 'Meet', venues_path, class: 'btn btn-primary' %>
       </div>
     </div>
-
     <div class="card-item">
-      <%= image_tag("2.jpg", width: 300, height: 300, crop: :fill) %>
+      <%= link_to category_venues_path('celebrate') do %>
+        <%= image_tag("2.jpg", width: 300, height: 300, crop: :fill, data: { action: "mouseover->description#showDescription mouseout->description#resetDescription", description: "Celebrating Venue Description" }) %>
+      <% end %>
+
       <div class="card-text">
         <%= link_to 'Celebrate', venues_path, class: 'btn btn-primary' %>
       </div>
     </div>
   </div>
+  <div class="description text-center my-4" data-description-target="description">
+    <h3 id="description-text">Hover over the images to see descriptions.</h3>
 
-  <div class="description text-center my-4">
-    <h3>Looking for a venue for your next networking meeting or event? Meetspace can help connect you with the perfect venue to fit your needs. Whether for a group of 3 or 300, our carefully selected venue hosts will tailor your networking experiences to your needs.</h3>
   </div>
-
   <div class="cards-container d-flex justify-content-around my-4">
     <div class="card-item card owner">
       <%= image_tag("james_avatar.jpg", class: "card-img-top", crop: :fill) %>
@@ -57,7 +65,6 @@
         <%= link_to 'List Your Venue', new_venue_path, class: 'btn btn-primary' %>
       </div>
     </div>
-
     <div class="card-item card owner">
       <%= image_tag('t.jpg', class: "card-img-top", crop: :fill) %>
       <div class="card-body">
@@ -66,4 +73,5 @@
         <%= link_to 'Find a Venue', venues_path, class: 'btn btn-primary' %>
       </div>
     </div>
-  </div>
+</div>
+</div>

@@ -5,3 +5,4 @@ import "@popperjs/core"
 import "bootstrap"
 // import "@fortawesome/fontawesome-free/css/all";
 import "@rails/actioncable"
+
