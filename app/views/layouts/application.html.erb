@@ -11,17 +11,14 @@
     <%= javascript_importmap_tags %>
   </head>
 
-
   <body>
-    <%# <div class="container"> %>
+
     <%= render "shared/navbar" %>
       <%= render "shared/flashes" %>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <%= yield %>
-      <%# <div class="container-fluid foot"></div> %>
     <%= render "shared/footer" %>
-    <%# </div> %>
-
+  
   </body>
 </html>
