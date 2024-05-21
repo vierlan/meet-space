@@ -1,0 +1,67 @@
+.cards-index-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-inline-end: 0%;
+  margin-inline-start: 4%;
+  margin-block: 0%;
+  max-width: 1200px;
+  padding: 20px;
+  h1 {
+    font-size: 30px;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    margin: 15px 0px;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    margin: 10px 0px;
+    color: whitesmoke;
+  }
+}
+
+#map {
+  margin-right: 40px;
+  margin-top: 160px;
+  flex: 0 0 28%;
+  height: 70vh;
+  position: sticky;
+  top: 0;
+}
+
+.title-index {
+  flex: 1 0 100%;
+  width: 100%;
+}
+.card-index {
+  a {
+    text-decoration: none;
+    color: $primary;
+  }
+  background-color: $meet-dark-gray;
+  font-size: 15px;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  background-size: cover;
+  background-position: center;
+  padding-top: 10px 0px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin: 10px 0px;
+  flex: 0 0 30%;
+  border-radius: 5px;
+  img {
+    width: 100%;
+    height: 230px;
+    object-position: bottom;
+    bottom: 0;
+    border-radius: 5px;
+  }
+  h2 {
+    font-size: 25px;
+    margin: 2px 0px;
+    color: whitesmoke;
+    font-weight: bold;
+  }
+  .address {
+    height: 45px
+  }
+}

@@ -3,11 +3,12 @@
   background: $meet-dark-gray;
   a {
     color: $light-gray;
-
+    font-weight: bold;
     &:hover {
-      color: $light-gray;
+      color: $primary;
+      transition-duration: 0.5s;
     }
-    nav-link {
+    & nav-link { // Add the missing & symbol before nav-link
       color: $white;
       font-weight: bold;
     }

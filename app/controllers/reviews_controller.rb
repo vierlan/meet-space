@@ -9,6 +9,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user = current_user
     @review.venue = Venue.find(params[:venue_id])
+    authorize @review
     if @review.save
       redirect_to venue_path(@review.venue)
     else
