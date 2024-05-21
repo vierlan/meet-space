@@ -14,25 +14,16 @@
 @import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");
 
 @import url("https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css");
-// @import "star-rating.js/dist/star-rating.css";
+@import "star-rating.js/dist/star-rating.css";
 
-/* app/assets/stylesheets/application.css */
-.categories {
+html, body {
+  height: 100%;
+  margin: 0;
+}
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
   display: flex;
-  justify-content: space-around;
-}
-
-.icon {
-  font-size: 24px;
-  cursor: pointer;
-}
-
-.venues {
-  margin-top: 20px;
-}
-
-.venue {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 10px;
+  flex-direction: column;
 }

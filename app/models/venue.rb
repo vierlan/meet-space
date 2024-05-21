@@ -1,17 +1,15 @@
 class Venue < ApplicationRecord
-  CATEGORIES = %w[networking social celebrate]
+  CATEGORIES = %w[network meet celebrate]
 
   belongs_to :user
   has_many :bookings, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many_attached :photos
-  validates :name, presence: true
-  validates :address, presence: true
-  # validates :category, presence: true
-  validates :category, inclusion: { in: CATEGORIES }
-  validates :capacity, presence: true
-  validates :description, length: { maximum: 1000 }, allow_blank: true
+  validates :name, :address, :category, :capacity, presence: true
 
+  validates :category, inclusion: { in: CATEGORIES }
+
+  # validates :description, length: { maximum: 1000 }, allow_blank: true
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
@@ -22,10 +20,4 @@ class Venue < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
-end
-# venue.rb (model)
-class Venue < ApplicationRecord
-  CATEGORIES = %w[networking social celebration]
-
-  validates :category, inclusion: { in: CATEGORIES }
 end
