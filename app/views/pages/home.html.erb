@@ -1,18 +1,20 @@
-<div class="main-page" data-controller="description">
-  <div class="container-fluid">
-    <div id="carouselExampleSlidesOnly" class="carousel slide my-carousel" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <%= image_tag('1.jpg', alt: "..") %>
-        </div>
-        <div class="carousel-item">
-          <%= image_tag('2.jpg', alt: "...") %>
-        </div>
-        <div class="carousel-item">
-          <%= image_tag('3.jpg', alt: "...") %>
-        </div>
+
+
+  <!--<div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= image_tag('1.jpg', alt: "..") %>
       </div>
-    </div>
+      <div class="carousel-item">
+        <%= image_tag('2.jpg', alt: "...") %>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag('3.jpg', alt: "...") %>
+      </div>
+      video_tag(source_url, autoplay: :autoplay, loop: :loop, muted: :muted, class: "home_video")
+    </div>-->
+
+  <div class="banner">
+    <%= video_tag('meet_vid.mp4', autoplay: :autoplay, loop: :loop, muted: :muted ) %>
   </div>
   <div class="greeting text-center my-4">
     <h1>MEETSPACE</h1>
@@ -22,7 +24,8 @@
     <h3 id="main-description-text"></h3>
     <h3>Looking for a venue for your next networking meeting or event? Meetspace can help connect you with the perfect venue to fit your needs. Whether for a group of 3 or 300, our carefully selected venue hosts will tailor your networking experiences to your needs.</h3> %>
   </div>
-  
+
+<div class="main-page">
   <div class="cards-container">
     <div class="card-item">
       <%= link_to category_venues_path('network') do %>
