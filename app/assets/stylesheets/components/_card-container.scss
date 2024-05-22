@@ -69,6 +69,7 @@
   margin-inline-start: 2px;
   margin-block: 2px;
   max-width: 1200px;
+  padding-top: 10px;
   padding-inline-end: 50px;
   p {
     color: whitesmoke;
@@ -112,9 +113,9 @@
   margin-right: 40px;
   margin-top: 160px;
   flex: 0 0 28%;
-  height: 80vh;
+  height: 100vh;
   position: sticky;
-  top: 10px;
+  top: 0px;
 }
 #index {
   border: 1px solid $primary;
