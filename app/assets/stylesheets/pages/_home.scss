@@ -97,35 +97,41 @@
 }
 
 
-@media (min-width: 100px) and (max-width: 575px) {
-  .main-page {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (min-width: 576px) {
-  .main-page {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (min-width: 768px) {
-  .main-page {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (min-width: 992px) {
-  .main-page {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
 @media (min-width: 1200px) {
   .main-page {
-    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
   }
 }
+
+// @media (min-width: 1000px) {
+//   .main-page {
+//     width: 900px;
+//   }
+// }
+// @media (min-width: 100px) and (max-width: 575px) {
+//   .main-page {
+//     grid-template-columns: 1fr;
+//   }
+// }
+
+// @media (min-width: 576px) {
+//   .main-page {
+//     grid-template-columns: 1fr;
+//   }
+// }
+
+// @media (min-width: 768px) {
+//   .main-page {
+//     grid-template-columns: 1fr 1fr;
+//   }
+// }
+
+// @media (min-width: 992px) {
+//   .main-page {
+//     grid-template-columns: 1fr 1fr 1fr;
+//   }
+// }
+
 .card-item {
   position: relative;
   border: solid 1px black;

@@ -5,13 +5,13 @@
       <%= render "shared/search" %>
    </div>
           <% @venues.each_with_index do |venue, index| %>
-            <div class="card-index">
+            <div class="card-index" id="index">
               <h2><%= venue.name %></h2>
               <p><strong <%= venue.category %>></strong></p>
               <p class= "address"><%= venue.address %></p>
               <p><strong><%= venue.facilities %></strong></p>
               <p><strong>Capacity:</strong> <%= venue.capacity %></p>
-              <div><%= link_to "view this venue", venue_path(venue) %></div>
+              <div><%= link_to "View this venue", venue_path(venue) %></div>
               <% if venue.photos.attached? %>
                 <%= render 'shared/carousel', venue: venue, index: index %>
               <% else %>

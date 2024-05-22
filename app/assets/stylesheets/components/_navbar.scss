@@ -1,12 +1,13 @@
 .navbar-meet {
   justify-content: space-between;
   background: $meet-dark-gray;
+  margin-bottom: 0 !important;
   a {
     color: $light-gray;
     font-weight: bold;
     &:hover {
       color: $primary;
-      transition-duration: 0.5s;
+      transition-duration: 0.3s;
     }
     & nav-link { // Add the missing & symbol before nav-link
       color: $white;

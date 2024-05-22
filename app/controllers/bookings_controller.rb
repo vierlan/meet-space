@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
     end
   end
 
-  # check below
+  
   def confirm
     authorize @booking
 
