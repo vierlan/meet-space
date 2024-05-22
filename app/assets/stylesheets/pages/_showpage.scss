@@ -1,15 +1,9 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  color: #333;
-}
 
-.container {
+.container-showpage {
   margin: 0 auto;
 }
 
-.main-page {
+.main-showpage {
   margin: 0 auto;
 }
 
@@ -44,7 +38,7 @@ h2 {
   border-radius: 8px;
 }
 
-.map {
+.show-map {
   flex: 1;
   display: flex;
   justify-content: end;
@@ -56,19 +50,27 @@ h2 {
 .container-middle {
   display: flex;
   flex-wrap: center;
-  margin-left: 20px;
-  justify-content: space-around;
+  &-card {
+    flex:2;
+  }
+
 }
 
-.cards {
+.cards-showpage {
   display: flex;
-  gap: 70px;
+  gap: 50px;
   justify-content: space-around;
   align-items: center;
-  margin: 50px;
+  margin: 20px;
 }
 
-.card {
+.form-show {
+  width: 30%;
+  margin-left: 10px;
+  flex:1;
+}
+
+.card-showpage {
   width: 18rem;
   overflow: hidden;
   border: 1px solid #ddd;
@@ -110,6 +112,7 @@ h2 {
   margin-right: 20px;
   margin-bottom: 20px;
   color: white;
+  text-align: center;
 }
 
 .description p {
@@ -121,18 +124,18 @@ h2 {
   margin-top: 10px;
 }
 
-.form {
-  width: 30%;
-  margin-left: 30px;
-}
 
-.form h2 {
+
+.form-show  {
   margin-bottom: 20px;
   text-align: center;
   color: white;
+  .btn {
+    width:100%;
+ }
 }
 
-.form input, .form textarea {
+.simple input, .simple textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
@@ -155,7 +158,7 @@ h2 {
   text-decoration: none;
 }
 
-.btn-show:hover, .simple_form .btn-show:hover {
+.button-form:hover, .simple_form .button-form:hover {
   background-color: #006666;
 }
 
@@ -168,7 +171,7 @@ h2 {
 }
 
 .no-hover-effect {
-  transform: none !important; /* Disable hover effect */
+  transform: none !important;
 }
 
 .carousel-container .carousel-item img {
