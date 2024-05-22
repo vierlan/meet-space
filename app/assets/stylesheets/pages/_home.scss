@@ -30,7 +30,7 @@
     display: flex;
     align-items: stretch;
     width: 100%;
-    border: solid 1px black;
+    border: solid 1px $blue;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 
@@ -85,16 +85,16 @@
   margin-top: 10px;
 }
 
-/* Description style */
-.description {
+
+.main-description {
   text-align: center;
   color: white;
   padding: 50px;
   margin: 0 auto;
   max-width: 800px;
+  border-top: solid 0.5px $blue;
+  border-bottom: solid 0.5px $blue;
 }
-
-
 
 
 @media (min-width: 100px) and (max-width: 575px) {
@@ -126,11 +126,12 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
-.position-relative {
+.card-item {
   position: relative;
   border: solid 1px black;
   border-radius: 10px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+
 
   .overlay {
     position: absolute;
