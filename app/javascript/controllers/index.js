@@ -13,5 +13,3 @@ eagerLoadControllersFrom("controllers", application)
 // app/javascript/controllers/index.js
 // import { application } from "controllers/application"
 
-import DescriptionController from "./description_controller"
-application.register("description", DescriptionController)
