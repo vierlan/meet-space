@@ -3,13 +3,22 @@
     <%= video_tag('meet_vid.mp4', class: "width=100%", autoplay: :autoplay, loop: :loop, muted: :muted ) %>
   </div>
   <div class="home-greeting text-center my-4">
-    <h1>MEETSPACE</h1>
-    <h3>Network x Meet x Spaces</h3>
+    <h1 class="special-title">MEETSPACE</h1>
+   <h3>
+  Network
+  <%= image_tag("logo.png", class: "logo-small") %>
+  Meet
+  <%= image_tag("logo.png", class: "logo-small") %>
+  Spaces
+</h3>
+
+
   </div>
   <div class="container-fluid">
 
-  <div class="cards-container row my-4">
-    <div class="card-item position-relative col-md-6">
+
+  <div class="category-cards-container row my-4">
+    <div class="category-card-item position-relative col-md-6">
       <%= link_to category_venues_path('network') do %>
         <%= image_tag("4.jpg", width: 300, height: 300, crop: :fill) %>
           <div class="overlay">
@@ -19,7 +28,7 @@
   <% end %>
 </div>
 
-    <div class="card-item position-relative col-md-6">
+    <div class="category-card-item position-relative col-md-6">
       <%= link_to category_venues_path('meet') do %>
         <%= image_tag("1.jpg", width: 300, height: 300, crop: :fill) %>
           <div class="overlay">
@@ -29,7 +38,7 @@
   <% end %>
 </div>
 
-  <div class="card-item position-relative">
+  <div class="category-card-item position-relative">
   <%= link_to category_venues_path('celebrate') do %>
     <%= image_tag("2.jpg", width: 300, height: 300, crop: :fill) %>
     <div class="overlay">
@@ -44,7 +53,7 @@
     <h3>Looking for a venue for your next networking meeting or event? Meetspace can help connect you with the perfect venue to fit your needs. Whether for a group of 3 or 300, our carefully selected venue hosts will tailor your networking experiences to your needs.</h3>
   </div>
 
-<div class="cards-container my-4">
+<div class="category-cards-container my-4">
   <%# <div class="row justify-content-center"> %>
     <div class="col-md-6 col-lg-4 mb-4 d-flex justify-content-center mx-5">
       <div class="user-card d-flex">
