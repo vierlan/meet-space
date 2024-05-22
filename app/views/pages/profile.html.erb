@@ -1,59 +1,41 @@
-<div class="container">
+<div class="profile-page-container">
+<div class="main-container d-flex">
+  <div class="cards-profile-container">
 
-
-  <div class="profile-card">
-        <%# <h2>My profile:</h2> %>
-    <div class="user-img">
-       <% if current_user.photo.present? %>
-        <%= cl_image_tag current_user.photo.key, class: "avatar-large", alt: "" %>
-      <% end %>
+    <div class="class title-index">
+      <h1>My Venues</h1>
     </div>
-    <div class="user-details">
-      <p><%= @current_user.username %></p>
-      <p><strong>Email:</strong> <%= @current_user.email %></p>
-        <%# <div class="user-details"> %>
-      <p><strong>First Name:</strong> <%= @current_user.first_name %></p>
-      <p><strong>Last Name:</strong> <%= @current_user.last_name %></p>
-        </div> %>
-    </div>
-  </div>
 
-<div main-content>
-  <div class="row row-content">
-    <div class="col-sm-12 col-md-6 col-content">
 
-        <h2 class="card-title text-center">My venues</h2>
-        <% @venues.each do |venue| %>
-          <div class="venue-card">
-            <div class="venue-img">
-              <% if venue.photos.attached? && venue.photos[0].present? %>
-                <%= cl_image_tag venue.photos[0].key, alt: venue.name, class: "img-fluid" %>
+       <% @venues.each_with_index do |venue, index| %>
+        <div class="card-border">
+            <div class="card-index">
+              <h2><%= venue.name %></h2>
+              <p><strong <%= venue.category %>></strong></p>
+              <p class= "address"><%= venue.address %></p>
+              <p><strong><%= venue.facilities %></strong></p>
+              <p><strong>Capacity:</strong> <%= venue.capacity %></p>
+              <div><%= link_to "view this venue", venue_path(venue) %></div>
+              <% if venue.photos.attached? %>
+                <%= render 'shared/carousel', venue: venue, index: index %>
+              <% else %>
+                <p>No images available for this venue.</p>
               <% end %>
             </div>
-            <div class="venue-details">
-              <h5 class="card-title text-center"><%= venue.name %></h5>
-              <p><strong>Address:</strong> <%= venue.address %></p>
-            </div>
-            <div class="venue-actions">
-              <%= link_to "View Details", venue_path(venue), class: "btn btn-primary btn-block" %>
-              <%= link_to "Edit", edit_venue_path(venue), class: "btn btn-primary btn-block" %>
-              <%= link_to 'Delete', venue_path(venue), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-              <%# <%= link_to "Delete", venue_path(venue), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-block" %> 
-            </div>
+          <div class="venue-actions">
+            <%= link_to "View Details", venue_path(venue), class: "btn btn-primary btn-block" %>
+            <%= link_to "Edit", edit_venue_path(venue), class: "btn btn-primary btn-block" %>
+            <%= link_to 'Delete', venue_path(venue), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
           </div>
+         </div>
         <% end %>
+       </div>
 
-
-          <div ><%= link_to "add a venue", new_venue_path, class: "btn btn-primary" %> </div>
-    </div>
-
-    <div class="col-sm-12 col-md-6 col-content">
-      <div class="chat-link my-25">
-        <%= link_to "View my messages", chatrooms_path, class: "btn btn-primary" %>
-      </div>
-        <h2>My bookings</h2>
-        <ul class="list-group">
-          <% @bookings.each do |booking| %>
+    <div class="profile-middle-container">
+      <div class="title-index">
+        <h2>My Bookings</h2>
+      <ul class="list-group">
+        <% @bookings.each do |booking| %>
             <li class="list-group-item">
               <p><strong>Venue Name:</strong> <%= booking.venue.name %></p>
               <p><strong>Venue Owner:</strong> <%= booking.venue.user.email %></p>
@@ -62,36 +44,64 @@
               <p><strong>Message:</strong> <%= booking.comment %></p>
               <p><strong>Confirmed:</strong> <%= booking.confirmed %></p>
             </li>
-          <% end %>
-
+        <% end %>
         </ul>
-        <h2>My requests</h2>
+      </div>
+    </div>
+
+    <div class="profile-middle-container">
+      <div class="title-index">
+        <h2>Requests</h2>
         <ul class="list-group">
           <% @requests.each do |request| %>
             <li class="list-group-item">
-              <p><strong>Venue Owner:</strong> <%= request.venue.user.email %></p>
-              <p><strong>Booking Request from:</strong> <%= request.user.email %></p>
-              <p><strong>Venue</strong> <%= request.venue.name %></p>
-              <p><strong>From:</strong> <%= request.booking_date %></p>
+              <p>Request to book my venue:- <strong><%= request.venue.name %></strong></p>
+              <p>Booking Request from:- <strong><%= request.user.username %></strong></p>
+              <p>Email:- <strong><%= request.user.email %></strong></p>
+              <p><strong>On:- </strong> <%= request.booking_date %></p>
               <p><strong>Status:</strong> <%= request.confirmed %></p>
-              <p><strong>Message:</strong> <%= request.comment %></p>
-
-              <%# <% if request.venue.user == current_user && !request.confirmed %>
-              <%# <%= link_to 'Confirm Booking', confirm_booking_path(request), data: { 'turbo-method': :patch }, class: 'btn btn-primary' %>
-              <%# <% end %>
-
-              <% if request.venue.user == current_user && !request.confirmed %>
+              <p><strong>Initial message:-</strong> <%= request.comment %></p>
+            <% if request.venue.user == current_user && !request.confirmed %>
               <%= link_to 'Pending', confirm_booking_path(request), data: { 'turbo-method': :patch }, class: 'btn btn-warning' %>
-              <% elsif request.confirmed %>
+            <% elsif request.confirmed %>
               <%= button_tag 'Confirmed', class: 'btn btn-success', disabled: true %>
-              <% end %>
+            <% end %>
+            <%= link_to 'Back', profile_path %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
 
-<%= link_to 'Back', profile_path %>
-            </li>
-          <% end %>
-        </ul>
-
-      </div>
-   </div>
   </div>
+
+  <div class="profile-right-container">
+    <div class="user-img">
+       <% if current_user.photo.present? %>
+        <%= cl_image_tag current_user.photo.key, class: "avatar-large", alt: "" %>
+      <% end %>
+    </div>
+    <div class="user-details">
+      <h2><%= @current_user.username %></h2>
+      <p><strong>Email:</strong> <%= @current_user.email %></p>
+        <%# <div class="user-details"> %>
+      <p><strong>First Name:</strong> <%= @current_user.first_name %></p>
+      <p><strong>Last Name:</strong> <%= @current_user.last_name %></p>
+        <%# </div> %>
+    </div>
+
+    <div ><%= link_to "Add a venue", new_venue_path, class: "btn btn-info" %> </div>
+
+
+
+      <div class="chat-link py-25">
+        <%= link_to "Messages", chatrooms_path, class: "btn btn-info" %>
+
+
+
+
+  </div>
+
+
+  </div>
+</div>
 </div>

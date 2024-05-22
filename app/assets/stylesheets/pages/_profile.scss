@@ -27,10 +27,15 @@
   }
 }
 .list-group {
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 5px;
+
 
 
 .list-group-item {
-  margin: 20px;
-  border-radius: 8px;
+  background-color: rgba(0,0,0,0.1);
+  margin: 5px;
+  border-radius: 5px;
+  text-align: left;
 }
 }
