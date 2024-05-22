@@ -26,16 +26,43 @@
     border-radius: 8px;
   }
 }
-.list-group {
-  background-color: rgba(0,0,0,0.1);
-  border-radius: 5px;
 
-
-
-.list-group-item {
-  background-color: rgba(0,0,0,0.1);
-  margin: 5px;
-  border-radius: 5px;
-  text-align: left;
+.card-border {
+  .card-index {
+    .card {
+      width: 100%;
+      height: 230px;
+      object-position: bottom;
+      bottom: 0;
+      border-radius: 5px;
+    }
+  }
 }
+
+.title-index {
+
+  .list-group {
+    background-color: rgba(0,0,0,0.1);
+
+
+  .list-group-item {
+    background-color: rgba(0,0,0,0.1);
+    text-align: left;
+  }
+  }
+
+}
+
+.profile-actions {
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  .btn{
+    margin: 15px;
+    width: 150px;
+    border: 1px solid $meet-dark-gray;
+    border-radius: 5px;
+  }
 }
