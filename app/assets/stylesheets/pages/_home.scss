@@ -1,8 +1,4 @@
 
-
-
-
-/* Carousel style */
 .my-carousel {
   width: auto;
   height: 30vw;
@@ -28,22 +24,45 @@
   object-fit: cover;
 }
 
-/* Greeting text */
-.greeting {
-  text-align: center;
-  padding-top: 30px;
+
+.cards-container {
+  .user-card {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    border: solid 1px $blue;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+    .user-card-img {
+      flex: 1;
+      height: auto;
+      max-width: 100%;
+      object-fit: cover;
+      overflow: hidden;
+
+    }
+
+    .user-card-body {
+      flex: 2;
+      padding: 15px;
+    }
+  }
 }
 
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+  border-radius: 10px;
+
 }
 
 .cards-container {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+
 }
 
 .card-item {
@@ -52,6 +71,8 @@
   margin: 0 15px;
   text-align: center;
   color: white;
+  background-color: rgba(24,24,24,0.83);
+  padding-top: 5px;
 }
 
 .card-item img {
@@ -64,32 +85,88 @@
   margin-top: 10px;
 }
 
-/* Description style */
-.description {
+
+.main-description {
   text-align: center;
   color: white;
   padding: 50px;
   margin: 0 auto;
   max-width: 800px;
+  border-top: solid 0.5px $blue;
+  border-bottom: solid 0.5px $blue;
 }
 
-/* Cards for owner and event planners */
-.owner {
-  width: 18rem;
-  margin: 1rem;
-  background-color: #898585;
+
+@media (min-width: 1200px) {
+  .main-page {
+    width: 100%;
+  }
 }
 
-.owner .card-title {
-  font-size: 1.25rem;
-  font-weight: bold;
-}
+// @media (min-width: 1000px) {
+//   .main-page {
+//     width: 900px;
+//   }
+// }
+// @media (min-width: 100px) and (max-width: 575px) {
+//   .main-page {
+//     grid-template-columns: 1fr;
+//   }
+// }
 
-.owner .card-text {
-  font-size: 1rem;
-  margin: 0.5rem 0;
-}
+// @media (min-width: 576px) {
+//   .main-page {
+//     grid-template-columns: 1fr;
+//   }
+// }
 
-//.owner .btn {
-//  width: 100%;
-//}
+// @media (min-width: 768px) {
+//   .main-page {
+//     grid-template-columns: 1fr 1fr;
+//   }
+// }
+
+// @media (min-width: 992px) {
+//   .main-page {
+//     grid-template-columns: 1fr 1fr 1fr;
+//   }
+// }
+
+.card-item {
+  position: relative;
+  border: solid 1px black;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    .description {
+      color: white;
+      text-align: center;
+    }
+  }
+
+  &:hover {
+    .overlay {
+      display: flex;
+    }
+  }
+  .label {
+    color: white;
+    margin-bottom: 0 !important;
+    font-size: 18px;
+    padding: 10px;
+    text-align: center;
+
+  }
+}

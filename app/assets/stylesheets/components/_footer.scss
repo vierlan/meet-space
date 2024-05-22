@@ -1,44 +1,51 @@
 /* Footer style brothaa */
 .footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
   background-color: #d3d3d3;
-  padding: 0px;
-  position: relative;
-  margin-top: 100px;
-  // position: fixed;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top:10px;
+  // position: relative;
+  // justify-content: flex-end;
+
+
   left: 0;
   bottom: 0;
   width: 100%;
 }
 
-.footer-content {
-  text-align: center;
-
+.footer p {
+  color: gray;
 }
-
+.footer h5 {
+  margin: 0;
+  color: black;
+}
 .footer-content h2 {
   margin: 0;
   color: black;
 }
+// .row {
+//   margin: 0;
+// }
 
 .footer-content p {
   margin: 5px 0;
 
 }
-
-.footer-content address {
-  margin: 0;
-  color: black;
+address {
+  margin-left: 0;
+  color: gray
 }
 
+
 .social-icons {
-  font-size: 30px;
-  position: absolute;
-  right: 20px;
-  display: flex;
+  font-size: 25px;
+
   gap: 10px;
+  margin-right: 10;
+  padding-right: 20px;
+  text-align: right;
 }
 
 .social-icons a {
