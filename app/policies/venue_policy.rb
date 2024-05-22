@@ -24,6 +24,10 @@ class VenuePolicy < ApplicationPolicy
     create?
   end
 
+  def category?
+    true
+  end
+
   def create?
     true
   end

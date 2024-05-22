@@ -1,36 +1,30 @@
+<div class="main-container">
+  <div class="cards-index-container">
+   <div class="title-index mb-2">
+      <h1>All Our Venues</h1>
+      <%= render "shared/search" %>
+   </div>
+          <% @venues.each_with_index do |venue, index| %>
+            <div class="card-index">
+              <h2><%= venue.name %></h2>
+              <p><strong <%= venue.category %>></strong></p>
+              <p class= "address"><%= venue.address %></p>
+              <p><strong><%= venue.facilities %></strong></p>
+              <p><strong>Capacity:</strong> <%= venue.capacity %></p>
+              <div><%= link_to "view this venue", venue_path(venue) %></div>
+              <% if venue.photos.attached? %>
+                <%= render 'shared/carousel', venue: venue, index: index %>
+              <% else %>
+                <p>No images available for this venue.</p>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
 
 
-<h1>All Venues</h1>
-<%= render "shared/search" %>
-<div class="index-container">
-  <div class="row">
-    <div class="col-md-6">
-      <div class="venues">
-        <% @venues.each_with_index do |venue, index| %>
-          <div class="venue-card">
-            <h2><%= venue.name %></h2>
-            <p> Owner: <%= venue.user.email %></p>
-            <p><strong>Category:</strong> <%= venue.category %></p>
-            <p><strong>Address:</strong> <%= venue.address %></p>
-            <p><strong>Facilities:</strong> <%= venue.facilities %></p>
-            <p><strong>Capacity:</strong> <%= venue.capacity %></p>
-            <div><%= link_to "view this venue", venue_path(venue) %></div>
-            <% if venue.photos.attached? %>
-              <%= render 'shared/carousel', venue: venue, index: index %>
-            <% else %>
-              <p>No images available for this venue.</p>
-            <% end %>
-          </div>
-        <% end %>
+      <div id="map"
+       data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
-
-    <div class="col-md-6">
-      <div style="width: 80%; height: 600px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
-    </div>
-  </div>
-</div>
