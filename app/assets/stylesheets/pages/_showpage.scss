@@ -1,4 +1,3 @@
-
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -10,14 +9,12 @@ body {
   margin: 0 auto;
 }
 
-
 .main-page {
   margin: 0 auto;
 }
 
-
 h2 {
-  color:white;
+  color: white;
 }
 
 .container-top, .container-middle, .container-bottom {
@@ -28,16 +25,14 @@ h2 {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: center;
-
 }
-
 
 .container-top {
   display: flex;
   flex-wrap: wrap;
 }
 
-.banner-picture {
+.carousel-container {
   flex: 2;
   margin-right: 20px;
 }
@@ -52,41 +47,46 @@ h2 {
 .map {
   flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
   overflow: hidden;
   border-radius: 8px;
 }
-
 
 .container-middle {
   display: flex;
   flex-wrap: center;
   margin-left: 20px;
   justify-content: space-around;
-
 }
 
 .cards {
   display: flex;
-   gap: 70px;
-   justify-content: space-around;
-   align-items: center;
-   margin: 50px;
+  gap: 70px;
+  justify-content: space-around;
+  align-items: center;
+  margin: 50px;
 }
 
 .card {
   width: 18rem;
   overflow: hidden;
-  transition: transform 0.3s ease-in-out;
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
   display: flex;
- justify-content: space-around;
+  justify-content: space-around;
   align-items: center;
+}
 
+.hover-effect {
+  transition: transform 0.3s ease-in-out;
+}
+
+.hover-effect:hover {
+  transform: scale(1.2);
+  z-index: 1000;
 }
 
 .card img {
@@ -95,24 +95,15 @@ h2 {
   object-fit: cover;
 }
 
-.card:hover {
-  transform: scale(2);
-  z-index: 1000;
-}
-
-
 .venue-thumbnail-img {
   width: 100%;
   height: 200px;
   object-fit: cover;
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
 }
 
-.card-body {
-  padding: 10px;
 
-}
 
 .description {
   flex: 2;
@@ -131,8 +122,8 @@ h2 {
 }
 
 .form {
-width:30%;
- margin-left: 30px;
+  width: 30%;
+  margin-left: 30px;
 }
 
 .form h2 {
@@ -148,15 +139,12 @@ width:30%;
   border: 1px solid #ddd;
   border-radius: 4px;
   color: black;
-
-
-
 }
 
 .btn-show, .simple_form .btn {
   width: 100%;
   padding: 10px;
-  margin-top:20px ;
+  margin-top: 20px;
   background-color: #008080;
   border: none;
   color: #fff;
@@ -171,12 +159,20 @@ width:30%;
   background-color: #006666;
 }
 
-
 .container-bottom {
   margin-top: 20px;
-
 }
 
 .reviews {
   margin-top: 0px;
+}
+
+.no-hover-effect {
+  transform: none !important; /* Disable hover effect */
+}
+
+.carousel-container .carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
