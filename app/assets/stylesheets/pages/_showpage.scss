@@ -1,4 +1,4 @@
- 
+
 .container-showpage {
   margin: 0 auto;
 }
@@ -112,6 +112,7 @@ h2 {
   margin-right: 20px;
   margin-bottom: 20px;
   color: white;
+  text-align: center;
 }
 
 .description p {
@@ -125,10 +126,13 @@ h2 {
 
 
 
-.form-show h2 {
+.form-show  {
   margin-bottom: 20px;
   text-align: center;
   color: white;
+  .btn {
+    width:100%;
+ }
 }
 
 .simple input, .simple textarea {
