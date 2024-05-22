@@ -14,5 +14,7 @@ class PagesController < ApplicationController
 
     # all of the bookings where the current user owns the venue
     @venue = Venue.last
+
+
   end
 end
