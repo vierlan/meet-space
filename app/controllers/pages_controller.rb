@@ -10,7 +10,6 @@ class PagesController < ApplicationController
     @venues = @user.venues
     # @bookings = @user.bookings
 
-
     @bookings = current_user.bookings.order(created_at: :desc)
     @chatrooms = current_user.chatrooms
     @requests = current_user.venues.flat_map { |venue| venue.bookings }.sort_by { |booking| booking.created_at }.reverse

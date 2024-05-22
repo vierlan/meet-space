@@ -3,12 +3,12 @@ class VenuesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @venues = Venue.all
+    # @venues = Venue.all
 
     if params[:query].present?
-      @venues = Venue.search_by_name_and_facilities(params[:query])
+      @venues = Venue.search_by_name_and_facilities(params[:query]).where.not(user: current_user)
     else
-      @venues = Venue.all
+      @venues = Venue.where.not(user: current_user)
     end
 
     policy_scope @venues
@@ -67,9 +67,9 @@ class VenuesController < ApplicationController
   end
 
   def category
-    @venues = Venue.where(category: params[:category])
+    @venues = Venue.where(category: params[:category]).where.not(user: current_user)
     render :index
-    authorize Venue
+    authorize @venues
   end
 
   private
