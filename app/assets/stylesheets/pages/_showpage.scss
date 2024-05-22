@@ -141,7 +141,7 @@ h2 {
   color: black;
 }
 
-.btn-show, .simple_form .btn {
+.button-form, .simple_form  {
   width: 100%;
   padding: 10px;
   margin-top: 20px;
@@ -155,7 +155,7 @@ h2 {
   text-decoration: none;
 }
 
-.btn-show:hover, .simple_form .btn-show:hover {
+.button-form:hover, .simple_form .button-form:hover {
   background-color: #006666;
 }
 
@@ -168,7 +168,7 @@ h2 {
 }
 
 .no-hover-effect {
-  transform: none !important; /* Disable hover effect */
+  transform: none !important;
 }
 
 .carousel-container .carousel-item img {
