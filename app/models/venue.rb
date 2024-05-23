@@ -1,5 +1,5 @@
 class Venue < ApplicationRecord
-  CATEGORIES = %w[network meet celebrate]
+  CATEGORIES = %w[NETWORK MEET CELEBRATE]
 
   belongs_to :user
   has_many :bookings, dependent: :destroy

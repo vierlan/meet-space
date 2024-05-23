@@ -26,7 +26,7 @@ class VenuesController < ApplicationController
 
   def show
     authorize @venue
-    @review = Review.new  
+    @review = Review.new
     @reviews = @venue.reviews
     @booking = Booking.new
     @marker = {
@@ -58,9 +58,12 @@ class VenuesController < ApplicationController
   end
 
   def update
-    @venue.update(venue_params)
-    redirect_to @venue
     authorize @venue
+    if @venue.update(venue_params)
+      redirect_to @venue
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
