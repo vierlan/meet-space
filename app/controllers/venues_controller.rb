@@ -68,6 +68,14 @@ class VenuesController < ApplicationController
 
   def category
     @venues = Venue.where(category: params[:category]).where.not(user: current_user)
+    @markers = @venues.map do |venue|
+      {
+        lat: venue.latitude,
+        lng: venue.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {venue: venue}),
+        marker_html: render_to_string(partial: "marker", locals: {venue: venue})
+      }
+    end
     render :index
     authorize @venues
   end
