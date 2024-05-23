@@ -31,5 +31,7 @@ Rails.application.routes.draw do
   resources :venues do
     resources :reviews, only: [:new, :create]
   end
-
+  resources :reviews, only: [:destroy]
+  resources :chatrooms, only: [:destroy]
+  resources :messages, only: [:destroy]
 end
