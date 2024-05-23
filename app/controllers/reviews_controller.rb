@@ -18,6 +18,13 @@ class ReviewsController < ApplicationController
     end
   end
 
+
+    # def show
+    #   @venue = Venue.find(params[:id])
+    #   @reviews = @venue.reviews
+    # end
+
+
   private
 
   def review_params

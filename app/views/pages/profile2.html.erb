@@ -1,0 +1,123 @@
+<div class="profile-page-container">
+<div class="main-container d-flex">
+  <div class="cards-profile-container">
+
+    <div class="class title-index">
+      <h1>My Venues</h1>
+    </div>
+
+
+       <% @venues.each_with_index do |venue, index| %>
+        <div class="card-border">
+            <div class="card-index">
+              <h2><%= venue.name %></h2>
+              <p><strong <%= venue.category %>></strong></p>
+              <p class= "address"><%= venue.address %></p>
+              <p><strong><%= venue.facilities %></strong></p>
+              <p><strong>Capacity:</strong> <%= venue.capacity %></p>
+              <div><%= link_to "view this venue", venue_path(venue) %></div>
+              <% if venue.photos.attached? %>
+                <%= render 'shared/carousel', venue: venue, index: index %>
+              <% else %>
+                <p>No images available for this venue.</p>
+              <% end %>
+            </div>
+          <div class="venue-actions">
+            <%= link_to "View Details", venue_path(venue), class: "btn btn-primary btn-block" %>
+            <%= link_to "Edit", edit_venue_path(venue), class: "btn btn-primary btn-block" %>
+            <%= link_to 'Delete', venue_path(venue), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          </div>
+         </div>
+        <% end %>
+       </div>
+
+    <div class="profile-middle-container">
+      <div class="title-index">
+        <h2>My Bookings</h2>
+      <ul class="list-group">
+        <% @bookings.each do |booking| %>
+            <li class="list-group-item">
+              <p><strong>Venue Name:</strong> <%= booking.venue.name %></p>
+              <p><strong>Venue Owner:</strong> <%= booking.venue.user.email %></p>
+              <p><strong>Booking Request from:</strong> <%= booking.user.email %></p>
+              <p><strong>From:</strong> <%= booking.booking_date.strftime("%B %d, %Y") %></p>
+              <p><strong>Message:</strong> <%= booking.comment %></p>
+              <p><strong>Status:</strong>
+              <span class="<%= booking.confirmed ? 'text-success' : 'text-warning' %>">
+               <%= booking.confirmed ? "Confirmed" : "Waiting for confirmation" %></p>
+              </span></p>
+
+
+            </li>
+
+
+           <% if current_user == booking.user %>
+              <% other_user = booking.venue.user.username %>
+            <% else %>
+              <% other_user = booking.user.username %>
+            <% end %>
+            <li class="list-group-item">
+              <%= link_to "Chat regarding #{booking.venue.name} booking on #{booking.booking_date} between you and #{other_user}", chatroom_path(booking.chatroom) %>
+            <% end %>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="profile-middle-container">
+      <div class="title-index">
+        <h2>Requests</h2>
+        <ul class="list-group">
+          <% @requests.each do |request| %>
+            <li class="list-group-item">
+              <p>Request to book my venue:- <strong><%= request.venue.name %></strong></p>
+              <p>Booking Request from:- <strong><%= request.user.username %></strong></p>
+              <p>Email:- <strong><%= request.user.email %></strong></p>
+              <p><strong>On:- </strong> <%= request.booking_date.strftime("%B %d, %Y") %></p>
+              <p><strong>Status:</strong> <%= request.confirmed %></p>
+              <p><strong>Initial message:-</strong> <%= request.comment %></p>
+
+
+             <% if current_user == request.user %>
+              <% other_user = request.venue.user.username %>
+            <% else %>
+              <% other_user = request.user.username %>
+            <% end %>
+            <%= button_to "Chat regarding #{request.venue.name} booking on #{request.booking_date} between you and #{other_user}", chatroom_path(request.chatroom), method: :get, class: 'btn btn-primary' %>
+
+            <%# <%= link_to "Chat regarding #{request.venue.name} booking on #{request.booking_date} between you and #{other_user}", chatroom_path(request.chatroom) %>
+            <% if request.venue.user == current_user && !request.confirmed %>
+              <%= link_to 'Pending', confirm_booking_path(request), data: { 'turbo-method': :patch }, class: 'btn btn-warning' %>
+            <% elsif request.confirmed %>
+              <%= button_tag 'Confirmed', class: 'btn btn-success', disabled: true %>
+            <% end %>
+            <%= link_to 'Back', profile_path %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="profile-right-container">
+    <div class="user-details border-bottom">
+      <h2><%= @current_user.username %></h2>
+      <% if current_user.photo.key %>
+       <%= cl_image_tag current_user.photo.key, class: "avatar-large", alt: "avatar" %>
+      <% else %>
+        <%= image_tag "logo.png", class: "avatar" %>
+      <% end %>
+      <p><strong>Email:</strong> <%= @current_user.email %></p>
+      <p><strong>First Name:</strong> <%= @current_user.first_name %></p>
+      <p><strong>Last Name:</strong> <%= @current_user.last_name %></p>
+    </div>
+    <div class="profile-actions">
+      <div><%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-info" %></div>
+    <div ><%= link_to "Add a venue", new_venue_path, class: "btn btn-info" %> </div>
+      <div class="chat-link py-25">
+        <%= link_to "Messages", chatrooms_path, class: "btn btn-info" %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

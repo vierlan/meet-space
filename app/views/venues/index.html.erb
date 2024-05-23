@@ -11,7 +11,7 @@
               <p class= "address"><%= venue.address %></p>
               <p><strong><%= venue.facilities %></strong></p>
               <p><strong>Capacity:</strong> <%= venue.capacity %></p>
-              <div><%= link_to "View this venue", venue_path(venue) %></div>
+              <div id= "link_to_view"><%= link_to "View this venue", venue_path(venue) %></div>
               <% if venue.photos.attached? %>
                 <%= render 'shared/carousel', venue: venue, index: index %>
               <% else %>

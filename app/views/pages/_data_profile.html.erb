@@ -1,0 +1,17 @@
+<!-- <div class="profile-middle-container">
+  <div class="title-index">
+    <h2>My Bookings</h2>
+  <ul class="list-group">
+    <% @bookings.each do |booking| %> -->
+         <li class="list-group-item">
+           <p><strong>Venue Name:</strong> <%= booking.venue.name %></p>
+           <p><strong>Venue Owner:</strong> <%= booking.venue.user.email %></p>
+           <p><strong>Booking Request from:</strong> <%= booking.user.email %></p>
+           <p><strong>From:</strong> <%= booking.booking_date %></p>
+           <p><strong>Message:</strong> <%= booking.comment %></p>
+           <p><strong>Confirmed:</strong> <%= booking.confirmed %></p>
+         </li>
+<!--     <% end %>
+     </ul>
+   </div>
+ </div> -->
