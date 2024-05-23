@@ -29,4 +29,11 @@ class ChatroomsController < ApplicationController
     authorize @chatroom
     @chatrooms = policy_scope(Chatroom)
   end
+
+  def destroy
+    @chatroom = Chatroom.find(params[:id])
+    authorize @chatroom
+    @chatroom.destroy
+    redirect_to profile_path(current_user)
+  end
 end
