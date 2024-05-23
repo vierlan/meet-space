@@ -1,7 +1,6 @@
 .cards-index-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   margin-inline-end: 0%;
   margin-inline-start: 4%;
   margin-block: 0%;
@@ -19,12 +18,13 @@
     margin: 10px 0px;
     color: whitesmoke;
   }
+
 }
 
 .profile-middle-container {
   background-color: rgba(0, 0, 0, 0);
   flex-direction: column;
-  flex-grow: 1;
+  flex: 0 0 25%;
   justify-content: space-around;
   margin-inline-end: 2px;
   margin-inline-start: 2px;
@@ -48,12 +48,19 @@
 
   }
 
+
+}
+
+.accordion-button {
+  justify-content: space-between;
+  color: $primary;
+  font-weight: bold;
 }
 
 .cards-profile-container {
-  flex-grow: 1;
+  flex: 0 0 25%;
   margin-inline-end: 10px;
-  margin-inline-start: 50px;
+  margin-inline-start: 10px;
   margin-block: 2px;
   max-width: 400px;
   padding: 5px;
@@ -76,8 +83,6 @@
   flex: 0 0 20%;
   justify-content: space-center;
   text-align: center;
-
-
   border-radius: 2px;
   background-color: $primary;
   margin-inline-end: 5px;
@@ -124,7 +129,7 @@
   border: 1px solid $primary;
   border-radius: 5px;
   padding: 10px;
-  margin: 10px 0px;
+  margin: 10px 10px;
   background-color: $meet-dark-gray;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   min-width: 250px;
@@ -162,7 +167,7 @@
 }
 
 .title-index {
-  flex: 1 0 100%;
+
   width: 100%;
   text-align: center;
 
@@ -181,7 +186,7 @@
   background-position: center;
   padding-top: 10px 0px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  margin: 10px 0px;
+  margin: 10px 10px;
   flex: 0 0 30%;
   border-radius: 5px;
   img {

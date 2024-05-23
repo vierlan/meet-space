@@ -10,7 +10,7 @@ class Booking < ApplicationRecord
 
   # before_destroy :destroy_chatroom
   after_create :create_chatroom_with_initial_message
-
+  #before_destroy :destroy_chatroom
   private
 
   def create_chatroom_with_initial_message

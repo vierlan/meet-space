@@ -13,24 +13,38 @@ users = [
   {
     first_name: 'Lan Anh',
     last_name: 'Nguyen',
-    username: 'Lala',
+    username: 'Alex',
     email: 'Lala@la.com',
     password: '123123'
   },
   {
     first_name: 'Rushana',
     last_name: 'Rushana',
-    username: 'Rushana',
+    username: 'Racheal',
     email: 'Rushana@la.com',
     password: '123123'
   },
   {
     first_name: 'Catalin',
     last_name: 'Ursu',
-    username: 'Catalin',
+    username: 'Bobby',
     email: 'Catalin@la.com',
     password: '123123'
-  }
+  },
+  {
+    first_name: 'Mariana',
+    last_name: 'Mariana',
+    username: 'Mariana',
+    email: 'mari@la.com',
+    password: '123123'
+  },
+  {
+    first_name: 'Mariana',
+    last_name: 'Mariana',
+    username: 'Cindy',
+    email: 'Larry@la.coom',
+    password: '123123'
+  },
 ]
 
 users.each do |user_data|
@@ -72,10 +86,20 @@ image_urls = [
   "https://res.cloudinary.com/dcu31xcxz/image/upload/v1716160682/16_s7xvsn.jpg",
   "https://res.cloudinary.com/dcu31xcxz/image/upload/v1715867709/development/bfykff3fnmj0icmwzl45pfk5j2rc.jpg",
   "https://res.cloudinary.com/dcu31xcxz/image/upload/v1716160667/12_2_pmstl9.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1716160675/13_2_hdgxwr.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1716160682/15_2_q6f2u1.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1716160686/17_wh6q1n.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1716160690/21_iwrvzd.jpg",
+  "https://res.cloudinary.com/dcu31xcxz/image/upload/v1716160708/6_2_h2msqz.jpg"
+
   # Add more image URLs as needed
 ]
 
-12.times do |i|
+user = User.create!(first_name: "Cat", last_name: "Ursu", username: "Cat", email: "cat@la.com", password: "123123")
+
+Venue.create!(user: user, name: "The Brewhouse", address: "397-400 Geffrye St, London E2 8HZ", category: "meet", capacity: 10, facilities: "wifi, coffee, tv, pool", description: "The Brewhouse is the purrfect place to meet and network with other coding lovers.")
+
+15.times do |i|
   new_venue = Venue.new(
     name: Faker::Restaurant.unique.name,
     facilities: facilities_array.sample(4).map(&:to_s).join(", "),
@@ -98,39 +122,39 @@ end
 puts "Venues done!"
 puts "Creating bookings..."
 venues = Venue.all
-#
-#message = ["Would it be possible to book this venue for 10 people on Friday?", "Can I book this venue for a birthday party?", "I would like to book this venue for a networking event.",
-#           "Can I book this venue for a meeting?", "Would it be possible to book this venue for a celebration?", "I would like to book this venue for a team building event.",
-#           "Can I book this venue for a conference?", "Would it be possible to book this venue for a workshop?", "I would like to book this venue for a seminar.",
-#           "Can I book this venue for a training event?", "Would it be possible to book this venue for a product launch?", "I would like to book this venue for a hackathon.",
-#           "Can I book this venue for a workshop?", "Would it be possible to book this venue for a team building event?", "I would like to book this venue for a conference.",
-#           "Can I book this venue for a networking event?", "Would it be possible to book this venue for a meeting?", "I would like to book this venue for a seminar.",
-#           "Can I book this venue for a training event?", "Would it be possible to book this venue for a product launch?", "I would like to book this venue for a hackathon."]
-#           require 'faker'
-#
-#           # Sample messages array for comments
-#           message = ["Meeting", "Conference", "Workshop", "Private Event"]
-#
-#  venues.each do |venue|
-#    2.times do
-#      booking = Booking.new(
-#        booking_date: Faker::Date.between(from: Date.today - 23.days, to: Date.today + 23.days),
-#        start_time: Faker::Time.between(from: Time.now.beginning_of_day + 6.hours, to: Time.now.noon).strftime("%H:%M:00"),
-#        end_time: Faker::Time.between(from: Time.now.noon, to: Time.now.end_of_day).strftime("%H:%M:00"),
-#        comment: message.sample,
-#        user: User.all.sample,
-#        venue: venue
-#      )
-#      booking.save(validate: false)
-#    end
-#  end
-#
+
+message = ["Would it be possible to book this venue for 10 people on Friday?", "Can I book this venue for a birthday party?", "I would like to book this venue for a networking event.",
+           "Can I book this venue for a meeting?", "Would it be possible to book this venue for a celebration?", "I would like to book this venue for a team building event.",
+           "Can I book this venue for a conference?", "Would it be possible to book this venue for a workshop?", "I would like to book this venue for a seminar.",
+           "Can I book this venue for a training event?", "Would it be possible to book this venue for a product launch?", "I would like to book this venue for a hackathon.",
+           "Can I book this venue for a workshop?", "Would it be possible to book this venue for a team building event?", "I would like to book this venue for a conference.",
+           "Can I book this venue for a networking event?", "Would it be possible to book this venue for a meeting?", "I would like to book this venue for a seminar.",
+           "Can I book this venue for a training event?", "Would it be possible to book this venue for a product launch?", "I would like to book this venue for a hackathon."]
+           require 'faker'
+
+           # Sample messages array for comments
+           message = ["Meeting", "Conference", "Workshop", "Private Event"]
+
+  venues.each do |venue|
+    2.times do
+      booking = Booking.new(
+        booking_date: Faker::Date.between(from: Date.today - 23.days, to: Date.today + 23.days),
+        start_time: Faker::Time.between(from: Time.now.beginning_of_day + 6.hours, to: Time.now.noon).strftime("%H:%M:00"),
+        end_time: Faker::Time.between(from: Time.now.noon, to: Time.now.end_of_day).strftime("%H:%M:00"),
+        comment: message.sample,
+        user: User.all.sample,
+        venue: venue
+      )
+      booking.save(validate: false)
+    end
+  end
+
 puts "Creating reviews..."
-venues.each do |venue|
-  6.times do
+venues.each do | venue |
+  4.times do
     review = Review.new(
       content: Faker::Restaurant.review,
-      rating: Faker::Number.between(from: 1, to: 5),
+      rating: Faker::Number.between(from: 2, to: 5),
       user: User.all.sample,
       venue: venue
     )

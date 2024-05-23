@@ -58,15 +58,18 @@ class VenuesController < ApplicationController
   end
 
   def update
-    @venue.update(venue_params)
-    redirect_to @venue
     authorize @venue
+    if @venue.update(venue_params)
+      redirect_to @venue
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
     @venue.destroy
-    redirect_to profile_path
-    authorize @venue
+    redirect_to profile_path(current_user)
+
   end
 
   def category
