@@ -10,10 +10,11 @@ class PagesController < ApplicationController
     @user = current_user
     @venues = @user.venues
 
+    @bookings = current_user.bookings.order(created_at: :desc)
+    @chatrooms = current_user.chatrooms
+    @requests = current_user.venues.flat_map { |venue| venue.bookings }.sort_by { |booking| booking.created_at }.reverse
 
-    @bookings = @user.bookings
-
-    @requests = current_user.venues.map{|venue| venue.bookings}.flatten
+    # @requests = current_user.venues.map{|venue| venue.bookings}.flatten
 
     # all of the bookings where the current user owns the venue
     @venue = Venue.last
@@ -37,6 +38,7 @@ class PagesController < ApplicationController
         @past_requests << request
       end
     end
+
 
   end
 end

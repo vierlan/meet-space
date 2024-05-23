@@ -123,9 +123,19 @@
               <p>Request to book my venue:- <strong><%= request.venue.name %></strong></p>
               <p>Booking Request from:- <strong><%= request.user.username %></strong></p>
               <p>Email:- <strong><%= request.user.email %></strong></p>
-              <p><strong>On:- </strong> <%= request.booking_date %></p>
+              <p><strong>On:- </strong> <%= request.booking_date.strftime("%B %d, %Y") %></p>
               <p><strong>Status:</strong> <%= request.confirmed %></p>
               <p><strong>Initial message:-</strong> <%= request.comment %></p>
+
+
+             <% if current_user == request.user %>
+              <% other_user = request.venue.user.username %>
+            <% else %>
+              <% other_user = request.user.username %>
+            <% end %>
+            <%= button_to "Chat regarding #{request.venue.name} booking on #{request.booking_date} between you and #{other_user}", chatroom_path(request.chatroom), method: :get, class: 'btn btn-primary' %>
+
+            <%# <%= link_to "Chat regarding #{request.venue.name} booking on #{request.booking_date} between you and #{other_user}", chatroom_path(request.chatroom) %>
             <% if request.venue.user == current_user && !request.confirmed %>
               <%= link_to 'Pending', confirm_booking_path(request), data: { 'turbo-method': :patch }, class: 'btn btn-warning' %>
             <% elsif request.confirmed %>
@@ -167,6 +177,7 @@
     </div>
   </div>
 
+</div>
 </div>
 </div>
 </div>
