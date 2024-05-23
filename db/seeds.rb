@@ -51,7 +51,7 @@ users.each do |user_data|
   User.create!(user_data)
 end
 
-categories = [:network, :meet, :celebrate]
+categories = [:NETWORK, :MEET, :CELEBRATE]
 facilities_array = [:wifi, :coffee, :tv, :pool, :tv, :spa, :music, :bar, :restaurant]
 address_array = [
   "116 New Oxford St, London WC1A 1HH", "49 Queensway, London W2 4QH", "51 Great Russell St, London WC1B 3BA",

@@ -69,10 +69,22 @@ class VenuesController < ApplicationController
   def destroy
     @venue.destroy
     redirect_to profile_path(current_user)
+
   end
 
   def category
+    # @category = params[:category]
     @venues = Venue.where(category: params[:category]).where.not(user: current_user)
+
+    if params[:query].present?
+      sql_subquery = "name ILIKE :query OR facilities ILIKE :query OR address ILIKE :query"
+      @venues = @venues.where(sql_subquery, query: "%#{params[:query]}%")
+    end
+
+    # if params[:query].present?
+    #   @venues = @venues.search_by_name_and_facilities(params[:query])
+    # end
+
     @markers = @venues.map do |venue|
       {
         lat: venue.latitude,
