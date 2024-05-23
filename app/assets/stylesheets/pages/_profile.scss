@@ -1,3 +1,31 @@
+.profile-right-container {
+  text-align: left;
+  justify-content: space-between;
+  flex: 0 0 22%;
+  padding-inline: 10px;
+  padding-right: 15px;
+
+  .list-group {
+    background-color: rgba(0,0,0,0.1);
+  .list-group-item {
+    background-color: rgba(0,0,0,0.1);
+    text-align: left;
+  }
+  }
+  .btn {
+    margin: 15px;
+    width: 80%;
+    border: 1px solid $meet-dark-gray;
+    border-radius: 5px;
+    display: block;
+
+
+  }
+  h2 {
+    padding-top: 8px;
+    margin-top: 8px;
+  }
+}
 
 
 .profile-card {
@@ -55,14 +83,25 @@
 
 .profile-actions {
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 20px;
   padding: 20px;
   border-radius: 8px;
   .btn{
     margin: 15px;
-    width: 150px;
+    width: 80%;
     border: 1px solid $meet-dark-gray;
     border-radius: 5px;
+  }
+}
+
+.profile-middle-container {
+  .pending {
+    color: $red;
+    padding-top: 5px;
+  }
+  .approved {
+    color: $primary;
+    padding-top: 5px;
   }
 }
