@@ -1,5 +1,6 @@
 class Venue < ApplicationRecord
-  CATEGORIES = %w[network meet celebrate]
+  CATEGORIES = %w[NETWORK MEET CELEBRATE]
+
 
   belongs_to :user
   has_many :bookings, dependent: :destroy
@@ -10,6 +11,7 @@ class Venue < ApplicationRecord
 
   validates :category, inclusion: { in: CATEGORIES }
 
+  # before_destroy :destroy_all_bookings
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?

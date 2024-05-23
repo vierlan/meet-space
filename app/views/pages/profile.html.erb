@@ -44,14 +44,17 @@
            </div>
          <div class="venue-actions">
            <%= link_to "View Details", venue_path(venue), class: "btn btn-primary btn-block" %>
+
            <%= link_to "Edit", edit_venue_path(venue), class: "btn btn-primary btn-block" %>
-           <%= link_to 'Delete', venue_path(venue), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+           <%= form_with url: venue_path(venue), method: :delete, data: { confirm: 'Are you sure?' }, class: 'd-inline' do %>
+              <%= submit_tag 'Delete', class: 'btn btn-danger' %>
+            <% end %>
+
+           <%# <%= link_to 'Delete', venue_path(venue), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' %> %>
          </div>
         </div>
        <% end %>
       </div>
-
-
 
 
       <div class="profile-middle-container ">
