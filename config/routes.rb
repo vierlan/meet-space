@@ -23,8 +23,13 @@ Rails.application.routes.draw do
       patch :confirm
     end
   end
-  
+
   resources :chatrooms, only: %i[index show create] do
       resources :messages, only: %i[create]
   end
+
+  resources :venues do
+    resources :reviews, only: [:new, :create]
+  end
+
 end
