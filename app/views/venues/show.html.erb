@@ -80,7 +80,13 @@
 
     <div class="container-bottom">
       <div class="reviews">
-        <h2> reviews </h2>
+        <% @reviews.each do |review| %>
+          <div class="card-review">
+            <h5><em>Review by <%= review.user.username %></em></h5>
+            <p class="mb-0"><%= review.content %></p>
+            <p class="star-rating"><%= '★ ' * (review.rating) %></p>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

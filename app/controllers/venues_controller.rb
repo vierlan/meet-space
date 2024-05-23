@@ -26,12 +26,14 @@ class VenuesController < ApplicationController
 
   def show
     authorize @venue
+    @review = Review.new  
+    @reviews = @venue.reviews
     @booking = Booking.new
     @marker = {
       lat: @venue.latitude,
       lng: @venue.longitude,
       info_window_html: render_to_string(partial: "info_window", locals: {venue: @venue}),
-        marker_html: render_to_string(partial: "marker", locals: {venue: @venue})
+      marker_html: render_to_string(partial: "marker", locals: {venue: @venue})
     }
   end
 
