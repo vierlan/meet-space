@@ -1,28 +1,39 @@
 
 
+.logo-large {
+  // display: inline-block;
+  width: 300px;
+  height: 100px;
 
-.special-title {
-  font-family: $main-label-font;
-  font-size: 50px;
-  color: #00FEFB;
-
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
-  // background: linear-gradient(to right, #00FEFB, #0083FF);
-  //   -webkit-background-clip: text;
-  //   -webkit-text-fill-color: transparent;
-    letter-spacing: 0.1em;
 }
+
+// .special-title {
+//   font-family: $main-label-font;
+//   font-size: 50px;
+//   color: #00FEFB;
+
+//   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+//   // background: linear-gradient(to right, #00FEFB, #0083FF);
+//   //   -webkit-background-clip: text;
+//   //   -webkit-text-fill-color: transparent;
+//     letter-spacing: 0.1em;
+// }
 
 .logo-small {
   display: inline-block;
 
-  width: 20px; 
+  width: 20px;
   height: 20px;
+
+}
+.spaced-logo {
+  margin: 0 10px; /* Adjust the margin values as needed */
 }
 h3.home-heading {
   color: white;
   font-weight: bold;
   font-size: 30px
+
 }
 
 
@@ -49,7 +60,10 @@ h3.home-heading {
       overflow: hidden;
 
     }
-
+    .user-card-title {
+      color: #00FEFB;
+      text-shadow:3px 3px 6px rgba(0, 0, 0, 0.5);
+    }
     .user-card-body {
       flex: 2;
       padding: 15px;
