@@ -25,15 +25,14 @@ class BookingsController < ApplicationController
     end
   end
 
-  
   def confirm
     authorize @booking
-
     if @booking.update(confirmed: true)
       redirect_to profile_path(current_user), notice: 'Booking was successfully confirmed.'
     else
       redirect_to profile_path(current_user), alert: 'Unable to confirm booking.'
     end
+
   end
 
 

@@ -66,3 +66,12 @@
     border-radius: 5px;
   }
 }
+
+.profile-middle-container {
+  .pending {
+    color: $red;
+  }
+  .approved {
+    color: $primary;
+  }
+}

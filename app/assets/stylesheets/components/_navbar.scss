@@ -1,7 +1,11 @@
 .navbar-meet {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
   justify-content: space-between;
   background: $meet-dark-gray;
   margin-bottom: 0 !important;
+  border-bottom: 1px solid $primary;
+  border-top: 2px solid $primary;
   a {
     color: $light-gray;
     font-weight: bold;

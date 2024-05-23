@@ -63,7 +63,7 @@ class VenuesController < ApplicationController
   def category
     @venues = Venue.where(category: params[:category])
     render :index
-    authorize Venue
+    authorize @venues
   end
 
   private

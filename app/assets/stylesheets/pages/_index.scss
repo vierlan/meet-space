@@ -2,3 +2,12 @@
 @import "home";
 @import "profile";
 @import "showpage";
+
+.card-index {
+  #link_to_view {
+    padding-bottom: 6px;
+  }
+  img {
+    border-top: 1px solid $primary;
+  }
+}
