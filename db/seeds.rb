@@ -41,7 +41,7 @@ categories = [:network, :meet, :celebrate]
 facilities_array = [:wifi, :coffee, :tv, :pool, :tv, :spa, :music, :bar, :restaurant]
 address_array = [
   "116 New Oxford St, London WC1A 1HH", "49 Queensway, London W2 4QH", "51 Great Russell St, London WC1B 3BA",
-  "299 Borough High St, London SE1 1JG", "S Colonnade, London E14 4QT", 
+  "299 Borough High St, London SE1 1JG", "S Colonnade, London E14 4QT",
   "79 St John's Wood High St, London NW8 7NL", "12 A Mepham St, London SE1 8SE", "68 Victoria Rd, Surbiton KT6 4NR",
   "20 St John's Hill, London SW11 1RU", "4 St James's Mkt, St. James's, London SW1Y 4AH", " 69-73 St John St, London EC1M 4NJ"
 ]
@@ -97,7 +97,7 @@ image_urls = [
 end
 puts "Venues done!"
 puts "Creating bookings..."
-#venues = Venue.all
+venues = Venue.all
 #
 #message = ["Would it be possible to book this venue for 10 people on Friday?", "Can I book this venue for a birthday party?", "I would like to book this venue for a networking event.",
 #           "Can I book this venue for a meeting?", "Would it be possible to book this venue for a celebration?", "I would like to book this venue for a team building event.",
