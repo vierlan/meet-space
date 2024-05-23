@@ -37,6 +37,16 @@
     padding: 10px;
 
   }
+  a {
+    text-decoration: none;
+    color: $primary;
+    padding: 8px;
+    background-color: $meet-dark-gray;
+    border-radius: 5px;
+    display: block;
+
+  }
+
 }
 
 .cards-profile-container {
@@ -60,15 +70,13 @@
 
 .profile-side-container {
   height: 100vh;
-
- 
   position: sticky;
   top: 0px;
   flex: 0 0 20%;
   justify-content: space-center;
   text-align: center;
-  border-right: 2px solid $meet-dark-gray;
-  border-top: 2px solid $meet-dark-gray;
+
+
   border-radius: 2px;
   background-color: $primary;
   margin-inline-end: 5px;
@@ -81,7 +89,8 @@
     color: whitesmoke;
   }
   h2 {
-    padding-top: 5px;
+    padding-top: 15px;
+    margin-top:15px;
     color: whitesmoke;
     font-weight: bolder;
   }
@@ -91,6 +100,22 @@
     border-radius: 5%;
     margin-bottom: 20px;
     border: 1px solid $meet-dark-gray;
+  }
+  .btn {
+    padding-inline: 30px;
+    margin-left: 50px;
+    margin: 15px;
+    width: 80%;
+    border: 1px solid $meet-dark-gray;
+    border-radius: 5px;
+    display: block;
+    background-color: rgb(50,50,50);
+    color: $primary;
+    font-weight: bold;
+  }
+  title-index {
+    Margin-top: 10px;
+
   }
 }
 

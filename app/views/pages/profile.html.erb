@@ -71,7 +71,16 @@
                     <p><strong>Venue Owner:</strong> <%= booking.venue.user.email %></p>
                     <p><strong>Request from:</strong> <%= booking.user.email %></p>
                     <p><strong>On:</strong> <%= booking.booking_date %></p>
+                    <p><strong>From:</strong> <%= booking.start_time %></p>
+                    <p><strong>Till:</strong> <%= booking.end_time %></p>
                     <p><strong>Message:</strong> <%= booking.comment %></p>
+                    <% if current_user == booking.user %>
+                       <% other_user = booking.venue.user.username %>
+                     <% else %>
+                       <% other_user = booking.user.username %>
+                     <% end %>
+                     <li class="list-group-item">
+                       <%= link_to "Chat with #{other_user}", chatroom_path(booking.chatroom) %>
                     <% if booking.confirmed %>
                       <h6 class="approved"><strong>Your booking has been confirmed.</strong></h6>
                     <% else %>
@@ -124,7 +133,8 @@
               <p>Booking Request from:- <strong><%= request.user.username %></strong></p>
               <p>Email:- <strong><%= request.user.email %></strong></p>
               <p><strong>On:- </strong> <%= request.booking_date.strftime("%B %d, %Y") %></p>
-              <p><strong>Status:</strong> <%= request.confirmed %></p>
+              <p><strong>From:- </strong> <%= request.start_time %></p>
+              <p><strong>Till:-   </strong> <%= request.end_time %></p>
               <p><strong>Initial message:-</strong> <%= request.comment %></p>
 
 
@@ -133,7 +143,7 @@
             <% else %>
               <% other_user = request.user.username %>
             <% end %>
-            <%= button_to "Chat regarding #{request.venue.name} booking on #{request.booking_date} between you and #{other_user}", chatroom_path(request.chatroom), method: :get, class: 'btn btn-primary' %>
+            <%= button_to "Chat with #{other_user}", chatroom_path(request.chatroom), method: :get, class: 'btn btn-primary' %>
 
             <%# <%= link_to "Chat regarding #{request.venue.name} booking on #{request.booking_date} between you and #{other_user}", chatroom_path(request.chatroom) %>
             <% if request.venue.user == current_user && !request.confirmed %>
@@ -141,8 +151,6 @@
             <% elsif request.confirmed %>
               <%= button_tag 'Confirmed', class: 'btn btn-success', disabled: true %>
             <% end %>
-            <%= link_to 'Back', profile_path %>
-          </li>
         <% end %>
       </ul>
     </div>
