@@ -175,7 +175,7 @@ venues.each do | venue |
   4.times do
     review = Review.new(
       content: Faker::Restaurant.review,
-      rating: Faker::Number.between(from: 2, to: 5),
+      rating: Faker::Number.between(from: 4, to: 5),
       user: User.all.sample,
       venue: venue
     )
