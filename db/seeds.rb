@@ -28,7 +28,7 @@ users = [
     first_name: 'Catalin',
     last_name: 'Ursu',
     username: 'Bobby',
-    email: 'Catalin@la.com',
+    email: 'Cat@la.com',
     password: '123123'
   },
   {
