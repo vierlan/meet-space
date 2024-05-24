@@ -2,7 +2,11 @@
   <div class="cards-index-container">
    <div class="title-index mb-2">
       <h1>All Our Venues</h1>
-      <%= render "shared/search" %>
+      <% if params[:category].present? %>
+        <%= render "shared/search_category" %>
+      <% else %>
+        <%= render "shared/search" %>
+      <% end %>
    </div>
           <% @venues.each_with_index do |venue, index| %>
             <div class="card-index" id="index">

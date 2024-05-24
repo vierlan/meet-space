@@ -16,23 +16,23 @@
   </div>
   <div class="container-fluid">
 
-
   <div class="category-cards-container row my-4">
     <div class="category-card-item position-relative col-md-6">
       <%= link_to category_venues_path('network') do %>
-        <%= image_tag("4.jpg", width: 300, height: 300, crop: :fill) %>
+        <%= image_tag("network.jpg", width: 300, height: 300, crop: :fill) %>
           <div class="overlay">
-      <p class="description">Networking venues is great for meeting new people and making connections.</p>
+      <p class="description">Need the perfect venue for your business networking and meetings? These venues are great for making new connections and fostering great ideas!</p>
     </div>
       <p class="label">Network</p>
   <% end %>
 </div>
 
+
     <div class="category-card-item position-relative col-md-6">
       <%= link_to category_venues_path('meet') do %>
-        <%= image_tag("1.jpg", width: 300, height: 300, crop: :fill) %>
+        <%= image_tag("meet.jpg", width: 300, height: 300, crop: :fill) %>
           <div class="overlay">
-      <p class="description">Meeting venues is perfect for productive discussions and collaborative sessions..</p>
+      <p class="description">Looking for a cool spot to mix and mingle? These venues are perfect for catching up with friends and making awesome connections!.</p>
     </div>
       <p class="label">Meet</p>
   <% end %>
@@ -40,9 +40,9 @@
 
   <div class="category-card-item position-relative">
   <%= link_to category_venues_path('celebrate') do %>
-    <%= image_tag("2.jpg", width: 300, height: 300, crop: :fill) %>
+    <%= image_tag("celebration.jpg", width: 400, height: 300, crop: :fill) %>
     <div class="overlay">
-      <p class="description">Celebration venues is ideal for memorable events and joyful gatherings.</p>
+      <p class="description">Looking for the ultimate venue for your celebrations and parties? These spaces are great for unforgettable moments and joyful gatherings!</p>
     </div>
       <p class="label">Celebrate</p>
   <% end %>
@@ -55,11 +55,10 @@
 
 <div class="category-cards-container my-4">
   <%# <div class="row justify-content-center"> %>
-    <div class="col-md-6 col-lg-4 mb-4 d-flex justify-content-center mx-5">
+    <div class="col-md-10 col-lg-5 mb-4 d-flex justify-content-center mx-5">
       <div class="user-card d-flex">
 
-
-        <%= image_tag("james_avatar.jpg", class: "user-card-img", width: 150, height: 150) %>
+        <%= image_tag("host.jpg", class: "user-card-img", width: 150, height: 150) %>
           <div class="user-card-body">
             <h5 class="user-card-title"><strong>For Venue Owners</strong></h5>
             <p class="user-card-text">Advertise your venue and reach more customers by offering your space for networking events, meetings, and celebrations. Join Meetspace to showcase your venue and attract renters.</p>
@@ -68,9 +67,9 @@
       </div>
 
     </div>
-    <div class="col-md-6 col-lg-4 mb-4 d-flex justify-content-center mx-5">
+    <div class="col-md-10 col-lg-5 mb-4 d-flex justify-content-center mx-5">
       <div class="user-card d-flex">
-        <%= image_tag('t.jpg', class: "user-card-img", width: 150, height: 150) %>
+        <%= image_tag('client.jpg', class: "user-card-img", width: 150, height: 150) %>
           <div class="user-card-body">
             <h5 class="user-card-title"><strong>For Event Planners</strong></h5>
              <p class="user-card-text">Find the perfect venue for your next event. Whether it's a small meeting or a large celebration, Meetspace connects you with venue owners offering the perfect space for your needs.</p>

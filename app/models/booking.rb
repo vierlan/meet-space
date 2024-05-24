@@ -8,6 +8,7 @@ class Booking < ApplicationRecord
   validates :end_time, comparison: { greater_than: :start_time }
   validates :comment, length: { minimum: 10, too_short: "Please provide more information about your event." }
 
+  # before_destroy :destroy_chatroom
   after_create :create_chatroom_with_initial_message
   #before_destroy :destroy_chatroom
   private

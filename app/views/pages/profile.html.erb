@@ -50,11 +50,43 @@
             <%= button_to "Delete", profile_path(current_user), class: "item", method: :delete, data: { turbo_confirm: 'Are you sure you mean to delete this venue?'}, class: 'btn btn-danger' %>
             <% end %>
         </div>
+
+
+    <div class="cards-profile-container">
+      <div class="class title-index">
+        <h1>My Venues</h1>
+      </div>
+      <% @venues.each_with_index do |venue, index| %>
+       <div class="card-border">
+           <div class="card-index">
+             <h2><%= venue.name %></h2>
+             <p><strong <%= venue.category %>></strong></p>
+             <p class= "address"><%= venue.address %></p>
+             <p><strong><%= venue.facilities %></strong></p>
+             <p><strong>Capacity:</strong> <%= venue.capacity %></p>
+             <div><%= link_to "view this venue", venue_path(venue) %></div>
+             <% if venue.photos.attached? %>
+               <%= render 'shared/carousel', venue: venue, index: index %>
+             <% else %>
+               <p>No images available for this venue.</p>
+             <% end %>
+           </div>
+         <div class="venue-actions">
+           <%= link_to "View Details", venue_path(venue), class: "btn btn-primary btn-block" %>
+
+           <%= link_to "Edit", edit_venue_path(venue), class: "btn btn-primary btn-block" %>
+           <%= form_with url: venue_path(venue), method: :delete, data: { confirm: 'Are you sure?' }, class: 'd-inline' do %>
+              <%= submit_tag 'Delete', class: 'btn btn-danger' %>
+            <% end %>
+
+           <%# <%= link_to 'Delete', venue_path(venue), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' %> %>
+         </div>
+        </div>
+       <% end %>
+
       </div>
       <% end %>
     </div>
-
-
 
 
   <div class="profile-middle-container ">
