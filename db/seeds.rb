@@ -99,7 +99,7 @@ user = User.create!(first_name: "Cat", last_name: "Ursu", username: "Cat", email
 
 Venue.create!(user: user, name: "The Brewhouse", address: "397-400 Geffrye St, London E2 8HZ", category: "meet", capacity: 10, facilities: "wifi, coffee, tv, pool", description: "The Brewhouse is the purrfect place to meet and network with other coding lovers.")
 
-15.times do |i|
+10.times do |i|
   new_venue = Venue.new(
     name: Faker::Restaurant.unique.name,
     facilities: facilities_array.sample(4).map(&:to_s).join(", "),
@@ -109,7 +109,28 @@ Venue.create!(user: user, name: "The Brewhouse", address: "397-400 Geffrye St, L
     capacity: Faker::Number.between(from: 10, to: 100),
     user_id: User.ids.sample
     )
-  4.times do
+  2.times do
+    random_number = rand(1..1000)
+    image = image_urls.sample
+    # file = File.open "app/assets/images/venue_images/#{random_number}.jpg"
+    file = URI.open(image)
+
+    new_venue.photos.attach(io: file, filename: "#{random_number}.jpg", content_type: "image/jpg")
+    new_venue.save!
+  end
+end
+
+12.times do |i|
+  new_venue = Venue.new(
+    name: Faker::Restaurant.unique.name,
+    facilities: facilities_array.sample(4).map(&:to_s).join(", "),
+    description: Faker::Restaurant.description,
+    address: address_array[i % address_array.length],
+    category: "NETWORK",
+    capacity: Faker::Number.between(from: 10, to: 100),
+    user_id: User.ids.sample
+    )
+  3.times do
     random_number = rand(1..1000)
     image = image_urls.sample
     # file = File.open "app/assets/images/venue_images/#{random_number}.jpg"
@@ -136,7 +157,7 @@ message = ["Would it be possible to book this venue for 10 people on Friday?", "
            message = ["Meeting", "Conference", "Workshop", "Private Event"]
 
   venues.each do |venue|
-    2.times do
+    1.times do
       booking = Booking.new(
         booking_date: Faker::Date.between(from: Date.today - 23.days, to: Date.today + 23.days),
         start_time: Faker::Time.between(from: Time.now.beginning_of_day + 6.hours, to: Time.now.noon).strftime("%H:%M:00"),
