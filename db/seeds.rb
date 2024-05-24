@@ -51,7 +51,7 @@ users.each do |user_data|
   User.create!(user_data)
 end
 
-categories = [:network, :meet, :celebrate]
+categories = [:NETWORK, :MEET, :CELEBRATE]
 facilities_array = [:wifi, :coffee, :tv, :pool, :tv, :spa, :music, :bar, :restaurant]
 address_array = [
   "116 New Oxford St, London WC1A 1HH", "49 Queensway, London W2 4QH", "51 Great Russell St, London WC1B 3BA",
@@ -97,7 +97,7 @@ image_urls = [
 
 user = User.create!(first_name: "Cat", last_name: "Ursu", username: "Cat", email: "cat@la.com", password: "123123")
 
-Venue.create!(user: user, name: "The Brewhouse", address: "397-400 Geffrye St, London E2 8HZ", category: "meet", capacity: 10, facilities: "wifi, coffee, tv, pool", description: "The Brewhouse is the purrfect place to meet and network with other coding lovers.")
+Venue.create!(user: user, name: "The Brewhouse", address: "397-400 Geffrye St, London E2 8HZ", category: :MEET, capacity: 10, facilities: "wifi, coffee, tv, pool", description: "The Brewhouse is the purrfect place to meet and network with other coding lovers.")
 
 10.times do |i|
   new_venue = Venue.new(
@@ -126,7 +126,7 @@ end
     facilities: facilities_array.sample(4).map(&:to_s).join(", "),
     description: Faker::Restaurant.description,
     address: address_array[i % address_array.length],
-    category: "NETWORK",
+    category: :NETWORK,
     capacity: Faker::Number.between(from: 10, to: 100),
     user_id: User.ids.sample
     )
