@@ -67,6 +67,7 @@ class VenuesController < ApplicationController
   end
 
   def destroy
+    authorize @venue
     @venue.destroy
     redirect_to profile_path(current_user)
 

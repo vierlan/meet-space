@@ -32,4 +32,17 @@ class BookingPolicy < ApplicationPolicy
   def confirm?
     user == record.venue.user
   end
+
+  def update?
+    user == record.user
+  end
+
+  def edit?
+    update?
+  end
+
+  def destroy?
+    user == record.user
+  end
+
 end

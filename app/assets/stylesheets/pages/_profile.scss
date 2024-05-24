@@ -1,6 +1,6 @@
 .profile-right-container {
-  text-align: left;
-  justify-content: space-between;
+
+  justify-content: center;
   flex: 0 0 26%;
   padding-inline: 10px;
   padding-right: 15px;
@@ -9,7 +9,6 @@
     background-color: rgba(0,0,0,0.1);
   .list-group-item {
     background-color: rgba(0,0,0,0.1);
-    text-align: left;
   }
   }
   .btn {
@@ -17,9 +16,6 @@
     width: 80%;
     border: 1px solid $meet-dark-gray;
     border-radius: 5px;
-    display: block;
-
-
   }
   h2 {
     padding-top: 8px;
@@ -68,14 +64,14 @@
 }
 
 .title-index {
-
+  justify-content: center;
   .list-group {
     background-color: rgba(0,0,0,0.1);
-
+    justify-content: center;
 
   .list-group-item {
     background-color: rgba(0,0,0,0.1);
-    text-align: left;
+    justify-content: center;
   }
   }
 
@@ -85,8 +81,14 @@
   flex-direction: column;
   justify-content: center;
   margin-top: 20px;
-  padding: 20px;
+  padding: 10px;
   border-radius: 8px;
+  margin-left: 28px;
+  .button-center {
+    display: flex;
+    justify-content: center;
+    margin-left: 28px;
+  }
   .btn{
     margin: 15px;
     width: 80%;
@@ -104,4 +106,10 @@
     color: $primary;
     padding-top: 5px;
   }
+}
+
+.venue-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-inline: 10px;
 }

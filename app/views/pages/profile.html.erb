@@ -41,46 +41,12 @@
             <% end %>
           </div>
         <div class="venue-actions">
+          <div>
           <%= link_to "View Details", venue_path(venue), class: "btn btn-primary btn-block" %>
           <%= link_to "Edit", edit_venue_path(venue), class: "btn btn-primary btn-block" %>
-          <%= form_with url: venue_path(venue), method: :delete, data: { confirm: 'Are you sure?' }, class: 'd-inline' do %>
-              <%= submit_tag 'Delete', class: 'btn btn-danger' %>
-            <% end %>
+          </div>
+            <%= button_to "Delete", profile_path(current_user), class: "item", method: :delete, data: { turbo_confirm: 'Are you sure you mean to delete this venue?'}, class: 'btn btn-danger' %>
         </div>
-
-
-    <div class="cards-profile-container">
-      <div class="class title-index">
-        <h1>My Venues</h1>
-      </div>
-      <% @venues.each_with_index do |venue, index| %>
-       <div class="card-border">
-           <div class="card-index">
-             <h2><%= venue.name %></h2>
-             <p><strong <%= venue.category %>></strong></p>
-             <p class= "address"><%= venue.address %></p>
-             <p><strong><%= venue.facilities %></strong></p>
-             <p><strong>Capacity:</strong> <%= venue.capacity %></p>
-             <div><%= link_to "view this venue", venue_path(venue) %></div>
-             <% if venue.photos.attached? %>
-               <%= render 'shared/carousel', venue: venue, index: index %>
-             <% else %>
-               <p>No images available for this venue.</p>
-             <% end %>
-           </div>
-         <div class="venue-actions">
-           <%= link_to "View Details", venue_path(venue), class: "btn btn-primary btn-block" %>
-
-           <%= link_to "Edit", edit_venue_path(venue), class: "btn btn-primary btn-block" %>
-           <%= form_with url: venue_path(venue), method: :delete, data: { confirm: 'Are you sure?' }, class: 'd-inline' do %>
-              <%= submit_tag 'Delete', class: 'btn btn-danger' %>
-            <% end %>
-
-           <%# <%= link_to 'Delete', venue_path(venue), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' %> %>
-         </div>
-        </div>
-       <% end %>
-
       </div>
       <% end %>
     </div>
@@ -101,18 +67,17 @@
               <div class="accordion-body">
                 <p><strong>Venue Name:</strong> <%= booking.venue.name %></p>
                 <p><strong>Venue Owner:</strong> <%= booking.venue.user.email %></p>
-                <p><strong>Request from:</strong> <%= booking.user.email %></p>
                 <p><strong>On:</strong> <%= booking.booking_date.strftime("%B %d, %Y") %></p>
                 <p><strong>From:</strong> <%= booking.start_time %></p>
                 <p><strong>Till:</strong> <%= booking.end_time %></p>
                 <p><strong>Message:</strong> <%= booking.comment %></p>
                 <% if current_user == booking.user %>
-                    <% other_user = booking.venue.user.username %>
-                  <% else %>
-                    <% other_user = booking.user.username %>
-                  <% end %>
+                  <% other_user = booking.venue.user.username %>
+                <% else %>
+                  <% other_user = booking.user.username %>
+                <% end %>
                   <li class="list-group-item">
-                    <%= link_to "Chat with #{other_user}", chatroom_path(booking.chatroom) %>
+                  <%= link_to "Chat with #{other_user}", chatroom_path(booking.chatroom) %>
                 <% if booking.confirmed %>
                   <h6 class="approved"><strong>Your booking has been confirmed.</strong></h6>
                 <% else %>
@@ -144,7 +109,6 @@
                 <div class="accordion-body">
                   <p><strong>Venue Name:</strong> <%= booking.venue.name %></p>
                   <p><strong>Venue Owner:</strong> <%= booking.venue.user.email %></p>
-                  <p><strong>Booking Request from:</strong> <%= booking.user.email %></p>
                   <p><strong>From:</strong> <%= booking.booking_date.strftime("%B %d, %Y") %></p>
                   <p><strong>Message:</strong> <%= booking.comment %></p>
                   <p><strong>Confirmed:</strong> <%= booking.confirmed %></p>
@@ -165,8 +129,8 @@
     <ul class="list-group">
       <% @current_requests.each do |request| %>
         <li class="list-group-item">
-          <p>Request to book my venue:- <strong><%= request.venue.name %></strong></p>
-          <p>Booking Request from:- <strong><%= request.user.username %></strong></p>
+          <p>Venue:- <strong><%= request.venue.name %></strong></p>
+          <p>Request from:- <strong><%= request.user.username %></strong></p>
           <p>Email:- <strong><%= request.user.email %></strong></p>
           <p><strong>On:- </strong> <%= request.booking_date.strftime("%B %d, %Y") %></p>
           <p><strong>From:- </strong> <%= request.start_time %></p>
@@ -177,6 +141,9 @@
         <% else %>
           <% other_user = request.user.username %>
         <% end %>
+
+       <div class="button-center">
+
         <%= button_to "Chat with #{other_user}", chatroom_path(request.chatroom), method: :get, class: 'btn btn-primary' %>
         <% if request.venue.user == current_user && !request.confirmed %>
           <%= link_to 'Pending', confirm_booking_path(request), data: { 'turbo-method': :patch }, class: 'btn btn-warning' %>
@@ -184,8 +151,10 @@
           <%= button_tag 'Confirmed', class: 'btn btn-success', disabled: true %>
         <% end %>
     <% end %>
+    </div></li>
   </ul>
-</div>
+  </div>
+
 
   <div class="title-index">
     <h2>Request history</h2>
