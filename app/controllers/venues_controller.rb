@@ -76,7 +76,7 @@ class VenuesController < ApplicationController
   def category
     # @category = params[:category]
     @venues = Venue.where(category: params[:category]).where.not(user: current_user)
-
+    authorize @venues
     if params[:query].present?
       sql_subquery = "name ILIKE :query OR facilities ILIKE :query OR address ILIKE :query"
       @venues = @venues.where(sql_subquery, query: "%#{params[:query]}%")
@@ -95,7 +95,7 @@ class VenuesController < ApplicationController
       }
     end
     render :index
-    authorize @venues
+
   end
 
   private

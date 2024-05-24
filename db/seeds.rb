@@ -13,7 +13,7 @@ users = [
   {
     first_name: 'Lan Anh',
     last_name: 'Nguyen',
-    username: 'Alex',
+    username: 'Lan Anh',
     email: 'Lala@la.com',
     password: '123123'
   },
@@ -95,7 +95,7 @@ image_urls = [
   # Add more image URLs as needed
 ]
 
-user = User.create!(first_name: "Cat", last_name: "Ursu", username: "Cat", email: "cat@la.com", password: "123123")
+user = User.create!(first_name: "Catalin", last_name: "Ursu", username: "Cat", email: "catalin@la.com", password: "123123")
 
 Venue.create!(user: user, name: "The Brewhouse", address: "397-400 Geffrye St, London E2 8HZ", category: :MEET, capacity: 10, facilities: "wifi, coffee, tv, pool", description: "The Brewhouse is the purrfect place to meet and network with other coding lovers.")
 
@@ -153,8 +153,7 @@ message = ["Would it be possible to book this venue for 10 people on Friday?", "
            "Can I book this venue for a training event?", "Would it be possible to book this venue for a product launch?", "I would like to book this venue for a hackathon."]
            require 'faker'
 
-           # Sample messages array for comments
-           message = ["Meeting", "Conference", "Workshop", "Private Event"]
+           # Sample messages array for comment
 
   venues.each do |venue|
     1.times do
